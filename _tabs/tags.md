@@ -1,40 +1,27 @@
 ---
 title: Tags
 icon: fas fa-tags
-order: 3
+order: 4
+layout: home
 ---
 
-<!-- Tags Section -->
-<div style="min-height:60vh; padding:50px; background: linear-gradient(135deg, #FFB6C1, #FF69B4); color:#000000; text-align:center;">
+<div class="site-section" style="min-height:80vh; padding:60px 28px; display:flex; align-items:flex-start; justify-content:center; background:var(--bg-dark);">
+  <div style="max-width:1100px; width:100%; color:var(--muted); text-align:center;">
 
-  <h2 style="text-shadow:0 0 8px #FF69B4; margin-bottom:30px;">My Skills & Tools</h2>
+    <h1 style="color:var(--neon-pink); margin-bottom:16px;">Tags</h1>
+    <p style="color:var(--muted); margin-bottom:28px;">A quick view of topics and technologies.</p>
 
-  <!-- Tags Container -->
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px;">
-
-    <!-- Final Tag List with Black Text -->
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Python</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Nmap</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Burp Suite</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Wireshark</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">John the Ripper</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">GoBuster</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Web Security</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">HTB Labs</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">CTFs</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Linux</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Networking</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Automation</div>
-    <div style="padding:10px 20px; background:#FF82AB; border-radius:20px; color:#000000; box-shadow:0 0 10px #FF69B4; transition: transform 0.2s; cursor:default;">Web Apps</div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px;">
+      {% for tag in site.tags %}
+        <a href="/tags/{{ tag[0] | slugify }}/" class="tag-pill">{{ tag[0] }} ({{ tag[1].size }})</a>
+      {% endfor %}
+    </div>
 
   </div>
-
 </div>
 
-<!-- Hover Effect -->
 <style>
-div div:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px #FF69B4;
-}
+.tag-pill { display:inline-block; padding:10px 16px; border-radius:999px; background:linear-gradient(90deg, rgba(255,20,147,0.12), rgba(65,105,225,0.08)); color:var(--neon-pink); text-decoration:none; box-shadow: 0 0 14px rgba(255,105,180,0.06); border:1px solid rgba(255,105,180,0.06); }
+.tag-pill:hover { transform:translateY(-3px); box-shadow:0 0 20px rgba(255,105,180,0.12); }
+@media (max-width:820px){ .site-section { padding:30px 16px;} }
 </style>

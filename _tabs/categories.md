@@ -2,78 +2,43 @@
 title: Categories
 icon: fas fa-th-large
 order: 2
+layout: home
 ---
 
-<!-- Categories Section - Soft Neon Pink Theme -->
-<div style="min-height:100vh; padding:50px; background: linear-gradient(135deg, #FFD6E8, #FF69B4); color:#000000;">
+<div class="site-section" style="min-height:100vh; padding:60px 28px; display:flex; align-items:flex-start; justify-content:center; background:var(--bg-dark);">
+  <div style="max-width:1100px; width:100%; color:var(--muted);">
+    <h1 style="color:var(--neon-pink); text-align:center; margin-bottom:18px;">Categories</h1>
+    <p style="text-align:center; color:var(--muted); margin-bottom:32px;">Projects and writeups grouped by topic. Click to explore.</p>
 
-  <!-- HTB Walkthroughs Category -->
-  <h2 style="text-align:center; margin-bottom:25px; text-shadow:0 0 8px #FF69B4;">HTB Walkthroughs / Documentation</h2>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-bottom:50px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px;">
 
-    <!-- Example HTB Project Card -->
-    <div style="background:#FF82AB; padding:20px; border-radius:15px; width:280px; box-shadow:0 0 15px #FF69B4; transition:transform 0.2s;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Lab: Academy</h3>
-      <p style="text-align:center; color:#000000;">Step-by-step walkthrough for Academy HTB lab covering enumeration and exploitation.</p>
-      <p style="text-align:center;"><a href="https://github.com/mawia/htb-academy" style="color:#000000; text-decoration:none;">View Walkthrough</a></p>
+      <div class="hud-panel">
+        <h3 style="color:var(--neon-pink); margin-bottom:8px;">HTB Walkthroughs</h3>
+        <p style="color:var(--muted);">Step-by-step walkthroughs and reports for HTB labs and CTF writeups.</p>
+        <p style="margin-top:12px;"><a class="neon-btn" href="/categories/htb-walkthroughs/">Explore</a></p>
+      </div>
+
+      <div class="hud-panel">
+        <h3 style="color:var(--neon-blue); margin-bottom:8px;">Python Tools</h3>
+        <p style="color:var(--muted);">Scripts and tools for automation, scanning, and exploitation.</p>
+        <p style="margin-top:12px;"><a class="neon-btn" href="/categories/python-tools/">Explore</a></p>
+      </div>
+
+      <div class="hud-panel">
+        <h3 style="color:var(--neon-purple); margin-bottom:8px;">Other Projects</h3>
+        <p style="color:var(--muted);">Miscellaneous experiments and small apps.</p>
+        <p style="margin-top:12px;"><a class="neon-btn" href="/categories/other-projects/">Explore</a></p>
+      </div>
+
     </div>
-
-    <div style="background:#FF5C8D; padding:20px; border-radius:15px; width:280px; box-shadow:0 0 15px #FF69B4; transition:transform 0.2s;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Lab: Legacy</h3>
-      <p style="text-align:center; color:#000000;">Full documentation for Legacy HTB lab including Linux exploitation steps.</p>
-      <p style="text-align:center;"><a href="https://github.com/mawia/htb-legacy" style="color:#000000; text-decoration:none;">View Walkthrough</a></p>
-    </div>
-
-    <!-- Add more HTB labs here -->
 
   </div>
-
-  <!-- Python Tools Category -->
-  <h2 style="text-align:center; margin-bottom:25px; text-shadow:0 0 8px #FF69B4;">Python Tools / Scripts</h2>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-bottom:50px;">
-
-    <!-- Example Python Project Card -->
-    <div style="background:#FF82AB; padding:20px; border-radius:15px; width:280px; box-shadow:0 0 15px #FF69B4; transition:transform 0.2s;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Port Scanner</h3>
-      <p style="text-align:center; color:#000000;">Python tool for scanning ports and identifying open services on a network.</p>
-      <p style="text-align:center;"><a href="https://github.com/mawia/python-port-scanner" style="color:#000000; text-decoration:none;">View Code</a></p>
-    </div>
-
-    <div style="background:#FF5C8D; padding:20px; border-radius:15px; width:280px; box-shadow:0 0 15px #FF69B4; transition:transform 0.2s;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Vuln Automator</h3>
-      <p style="text-align:center; color:#000000;">Automates vulnerability scanning and generates reports for web applications.</p>
-      <p style="text-align:center;"><a href="https://github.com/mawia/vuln-automator" style="color:#000000; text-decoration:none;">View Code</a></p>
-    </div>
-
-    <!-- Add more Python projects here -->
-
-  </div>
-
-  <!-- Optional Other Projects Category -->
-  <h2 style="text-align:center; margin-bottom:25px; text-shadow:0 0 8px #FF69B4;">Other Projects / Experiments</h2>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-bottom:50px;">
-
-    <!-- Example Other Project Card -->
-    <div style="background:#FF82AB; padding:20px; border-radius:15px; width:280px; box-shadow:0 0 15px #FF69B4; transition:transform 0.2s;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Mini Web App</h3>
-      <p style="text-align:center; color:#000000;">A small interactive web app built with Flask to track tasks and notes.</p>
-      <p style="text-align:center;"><a href="https://github.com/mawia/mini-web-app" style="color:#000000; text-decoration:none;">View Code</a></p>
-    </div>
-
-    <!-- Add more Other Projects here -->
-
-  </div>
-
 </div>
 
-<!-- Hover Effects -->
+
 <style>
-div div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px #FF69B4;
-}
-div a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 20px #FF69B4;
-}
+.hud-panel { background: rgba(6,8,12,0.6); padding:20px; border-radius:12px; box-shadow: 0 0 22px rgba(255,105,180,0.06); border:1px solid rgba(255,105,180,0.06); backdrop-filter: blur(6px); }
+.hud-panel h3 { text-shadow: 0 0 8px rgba(255,105,180,0.12); }
+.site-section a.neon-btn { margin:0; }
+@media (max-width:820px){ .site-section { padding:30px 16px;} }
 </style>
