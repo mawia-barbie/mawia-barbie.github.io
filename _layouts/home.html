@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ page.title | default: site.title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/jekyll-theme-chirpy.css' | relative_url }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --neon-pink: #f5a9c5;
+        --neon-blue: #22d3ee;
+        --neon-purple: #8b5cf6;
+        --bg-dark: #0b0f19;
+        --muted: #8b949e;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(245, 169, 197, 0.03),
+            transparent 8%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(139, 92, 246, 0.03),
+            transparent 20%
+          ),
+          linear-gradient(135deg, #07070b 0%, var(--bg-dark) 60%);
+        color: #e6edf3;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: "Orbitron", "Share Tech Mono", monospace;
+        line-height: 1.35;
+      }
+
+      /* Ensure content fills the viewport and allow three-column layout */
+      .site-viewport {
+        display: flex;
+        min-height: 100vh;
+        width: 100%;
+      }
+
+      /* Headings and neon accent */
+      h1 {
+        color: #e6edf3;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-shadow:
+          0 0 12px rgba(245, 169, 197, 0.08),
+          0 2px 0 rgba(0, 0, 0, 0.25);
+      }
+      h1 span {
+        color: var(--neon-pink) !important;
+        text-shadow: 0 0 30px var(--neon-pink) !important;
+      }
+      h3,
+      h4 {
+        color: var(--neon-pink) !important;
+        margin: 0 0 8px 0;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      a,
+      a:link,
+      a:visited {
+        color: var(--neon-pink) !important;
+        text-decoration: none !important;
+      }
+
+      /* HUD, panels and glows */
+      .hud-panel {
+        background: rgba(11, 15, 25, 0.65) !important;
+        border: 1px solid rgba(245, 169, 197, 0.12) !important;
+        box-shadow: 0 6px 30px rgba(245, 169, 197, 0.04) !important;
+        backdrop-filter: blur(8px) !important;
+        padding: 14px !important;
+        border-radius: 6px !important;
+      }
+
+      /* Buttons */
+      .neon-btn {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 6px;
+        border: 1px solid rgba(245, 169, 197, 0.25);
+        background: transparent;
+        color: var(--neon-pink);
+        box-shadow: 0 6px 24px rgba(245, 169, 197, 0.06);
+      }
+      .neon-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 40px rgba(245, 169, 197, 0.12);
+      }
+
+      /* Radar / circular accents */
+      .radar {
+        border-radius: 50%;
+        border: 1px solid rgba(0, 255, 255, 0.12) !important;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.06) !important;
+      }
+
+      /* Footer glow */
+      .glow-footer {
+        background: linear-gradient(
+          to top,
+          rgba(139, 92, 246, 0.12),
+          transparent
+        );
+        height: 120px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      /* Utility overrides to ensure inline-styled elements are visible */
+      [style] h1,
+      h1[style] {
+        color: #e6edf3 !important;
+      }
+      [style] h1 span,
+      h1[style] span {
+        color: var(--neon-pink) !important;
+      }
+      [style] a,
+      a[style] {
+        color: var(--neon-pink) !important;
+      }
+
+      /* Hide Chirpy left sidebar on the landing page */
+      /* This only applies to pages using the `home` layout */
+      #sidebar,
+      #mask,
+      #sidebar-trigger,
+      .sidebar-bottom {
+        display: none !important;
+      }
+      /* Make the main content full width */
+      #main-wrapper,
+      #main-wrapper .container,
+      .site-viewport > :not(.top-nav) {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      /* Ensure body doesn't reserve space for sidebar */
+      body[sidebar-display] {
+        padding-left: 0 !important;
+      }
+
+      /* Responsive tweaks */
+      @media (max-width: 900px) {
+        .site-viewport {
+          flex-direction: column;
+        }
+        .radar {
+          display: none;
+        }
+      }
+
+      /* Top navigation (new) */
+      .top-nav {
+        position: absolute;
+        top: 18px;
+        right: 36px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        z-index: 60;
+      }
+      .top-nav a {
+        color: rgba(230, 237, 243, 0.9);
+        border: 1px solid rgba(245, 169, 197, 0.08);
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        text-decoration: none;
+        transition: all 160ms ease;
+        background: rgba(11, 15, 25, 0.25);
+      }
+      .top-nav a:hover {
+        color: var(--neon-pink);
+        box-shadow: 0 8px 30px rgba(245, 169, 197, 0.12);
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-viewport">
+      <!-- Top navigation inserted so the landing page shows links to other sections -->
+      <nav class="top-nav" aria-label="Top navigation">
+        <a href="/about/">/about</a>
+        <a href="/categories/">/categories</a>
+        <a href="/archives/">/archives</a>
+        <a href="/tags/">/tags</a>
+      </nav>
+
+      {{ content }}
+    </div>
+  </body>
+</html>

@@ -2,23 +2,29 @@
 title: About
 icon: fas fa-user
 order: 1
+layout: home
 ---
 
-<!-- Soft Neon Pink About Section with Contrasts -->
-<div style="background: linear-gradient(135deg, #FFD6E8, #FF69B4); padding: 30px; border-radius: 15px; box-shadow: 0 0 20px #FF69B4; color: #000000;">
+<!-- add Home link to return to the landing page -->
+<p style="margin-bottom:18px;">
+  <a href="/" class="neon-btn" style="padding:8px 12px;">← Home</a>
+</p>
 
-  <h1 style="text-align:center; text-shadow: 0 0 8px #FF69B4, 0 0 16px #FF82AB;">Hey, I’m Grace Mawia 👋</h1>
+<!-- Futuristic About Section (keeps original content but styled as HUD) -->
+<div class="hud-panel" style="padding:30px; border-radius:12px; max-width:1000px; margin:0 auto;">
 
-  <p style="text-align:center; font-size:1.1em;">
-    I’m a <strong>cybersecurity professional</strong> and Python tinkerer who loves building projects, hunting vulnerabilities, and solving challenging CTFs.
+  <h1 style="text-align:center; color:var(--neon-pink); text-shadow:0 0 18px rgba(245,169,197,0.18);">Hey, I’m Grace Mawia 👋</h1>
+
+  <p style="text-align:center; font-size:1.1em; color:var(--muted);">
+    I’m a <strong style="color:var(--neon-pink);">cybersecurity professional</strong> and Python tinkerer who loves building projects, hunting vulnerabilities, and solving challenging CTFs.
   </p>
 
-  <!-- Skills Section -->
-  <div style="display:flex; justify-content:space-around; margin-top:20px; flex-wrap:wrap;">
+  <!-- Skills & Tools Panels -->
+  <div style="display:flex; justify-content:space-around; margin-top:20px; flex-wrap:wrap; gap:18px;">
 
-    <div style="background:#FF82AB; padding:15px; border-radius:12px; width:220px; margin:10px; box-shadow: 0 0 15px #FF69B4;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Skills</h3>
-      <ul style="list-style-type:none; padding-left:0; text-align:center; color:#000000;">
+    <div class="hud-panel" style="padding:16px; border-radius:10px; width:260px; margin:10px; text-align:center;">
+      <h3 style="color:var(--neon-pink);">Skills</h3>
+      <ul style="list-style-type:none; padding-left:0; margin:8px 0 0 0; color:var(--muted);">
         <li>Python 🐍</li>
         <li>Web Security 🔒</li>
         <li>Linux 🖥️</li>
@@ -27,9 +33,9 @@ order: 1
       </ul>
     </div>
 
-    <div style="background:#FF5C8D; padding:15px; border-radius:12px; width:220px; margin:10px; box-shadow: 0 0 15px #FF69B4;">
-      <h3 style="text-align:center; text-shadow:0 0 6px #FF69B4;">Tools</h3>
-      <ul style="list-style-type:none; padding-left:0; text-align:center; color:#000000;">
+    <div class="hud-panel" style="padding:16px; border-radius:10px; width:260px; margin:10px; text-align:center;">
+      <h3 style="color:var(--neon-pink);">Tools</h3>
+      <ul style="list-style-type:none; padding-left:0; margin:8px 0 0 0; color:var(--muted);">
         <li>HTB Labs 🧩</li>
         <li>Burp Suite 🛠️</li>
         <li>Nmap 🌐</li>
@@ -42,11 +48,11 @@ order: 1
 
   <!-- Connect Section -->
   <div style="text-align:center; margin-top:25px;">
-    <h2 style="text-shadow:0 0 8px #FF69B4, 0 0 16px #FF82AB;">Connect with Me</h2>
-    <p>
-      <a href="https://github.com/mawia" style="color:#000000; text-decoration:none; margin:0 10px;">🐱 GitHub</a> |
-      <a href="https://linkedin.com/in/mawia" style="color:#000000; text-decoration:none; margin:0 10px;">💼 LinkedIn</a> |
-      <a href="https://twitter.com/mawia" style="color:#000000; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
+    <h2 style="color:var(--neon-pink);">Connect with Me</h2>
+    <p style="color:var(--muted); margin-top:8px;">
+      <a class="neon-btn" href="https://github.com/mawia" style="margin:0 6px;">🐱 GitHub</a>
+      <a class="neon-btn" href="https://linkedin.com/in/mawia" style="margin:0 6px;">💼 LinkedIn</a>
+      <a class="neon-btn" href="https://twitter.com/mawia" style="margin:0 6px;">🐦 Twitter</a>
     </p>
   </div>
 
