@@ -13,6 +13,19 @@
       rel="stylesheet"
     />
     <style>
+      /* Hide category/tag links across the site, but allow the top-nav category link to remain visible */
+      a[href^="/categories"],
+      a[href*="/categories/"],
+      a[href^="/tags"],
+      a[href*="/tags/"] {
+        display: none !important;
+      }
+      /* Re-enable the categories link inside the top navigation */
+      .top-nav a[href^="/categories"],
+      .top-nav a[href*="/categories/"] {
+        display: inline-block !important;
+      }
+
       :root {
         --neon-pink: #f5a9c5;
         --neon-blue: #22d3ee;
@@ -134,7 +147,9 @@
       /* Utility overrides to ensure inline-styled elements are visible */
       [style] h1,
       h1[style] {
-        color: #e6edf3 !important;
+        /* Force inline-styled headings to use the neon pink so Home matches About */
+        color: var(--neon-pink) !important;
+        text-shadow: 0 0 30px var(--neon-pink) !important;
       }
       [style] h1 span,
       h1[style] span {
@@ -160,6 +175,20 @@
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
+      }
+      /* Ensure textual content on home layout uses neon pink to match theme */
+      .site-viewport > :not(.top-nav) {
+        color: var(--neon-pink) !important;
+      }
+      .site-viewport > :not(.top-nav) h1,
+      .site-viewport > :not(.top-nav) h2,
+      .site-viewport > :not(.top-nav) h3,
+      .site-viewport > :not(.top-nav) h4,
+      .site-viewport > :not(.top-nav) p,
+      .site-viewport > :not(.top-nav) li,
+      .site-viewport > :not(.top-nav) span,
+      .site-viewport > :not(.top-nav) a {
+        color: var(--neon-pink) !important;
       }
       /* Ensure body doesn't reserve space for sidebar */
       body[sidebar-display] {
@@ -207,14 +236,43 @@
     <div class="site-viewport">
       <!-- Top navigation inserted so the landing page shows links to other sections -->
       <nav class="top-nav" aria-label="Top navigation">
-        <a href="/about/">/about</a>
         <a href="/">/home</a>
+        <a href="/about/">/about</a>
         <a href="/categories/">/categories</a>
-        <a href="/archives/">/archives</a>
-        <a href="/tags/">/tags</a>
       </nav>
 
       {{ content }}
     </div>
+
+    <script>
+      // Ensure /home link appears first in top-nav and sidebar on all pages using this layout
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          var topNav = document.querySelector(".top-nav");
+          if (topNav) {
+            var homeLink = topNav.querySelector('a[href="/"]');
+            if (homeLink && topNav.firstElementChild !== homeLink) {
+              topNav.insertBefore(homeLink, topNav.firstElementChild);
+            }
+          }
+
+          var sidebar = document.querySelector("#sidebar");
+          if (sidebar) {
+            var ul = sidebar.querySelector("ul");
+            if (ul) {
+              var lis = ul.querySelectorAll("li");
+              lis.forEach(function (li) {
+                var a = li.querySelector('a[href="/"]');
+                if (a) {
+                  ul.insertBefore(li, ul.firstElementChild);
+                }
+              });
+            }
+          }
+        } catch (e) {
+          // silently ignore on older browsers
+        }
+      });
+    </script>
   </body>
 </html>
