@@ -1,5 +1,3 @@
-
-
 <!-- FUTURISTIC CYBERPUNK HOMEPAGE -->
 <div class="home-viewport" style="min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding-top:48px; padding-bottom:80px; position:relative;">
   <div class="home-inner" style="width:100%; max-width:1180px; padding:36px;">
@@ -293,5 +291,12 @@
     padding:18px;
   }
 }
+
+/* Force home content text to use the same neon-pink as the About page */
+.home-inner, .home-inner *:not(.coming-badge) {
+  color: var(--neon-pink) !important;
+}
+
+/* Keep badges and small UI accents as designed */
+.coming-badge { color: #0b0f19 !important; }
 </style>
-```
