@@ -19,7 +19,7 @@
       </p>
 
       <div style="display:flex; gap:14px; justify-content:center; margin-top:18px;">
-        <a class="cta-btn primary" href="#projects">View Projects</a>
+        <a id="view-projects-cta" class="cta-btn primary" href="/categories/">View Projects</a>
         <a class="cta-btn" href="/about/">Contact Me</a>
       </div>
 
@@ -40,69 +40,109 @@
 
       <div class="project-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
 
-        <!-- Project Card 1 -->
+        <!-- HTB Room: Meow -->
         <article class="project-card">
           <div class="project-inner">
-            <h3 class="project-title">OS Workshop Investigation Write-up</h3>
+            <h3 class="project-title">Meow — Starting Point (HTB)</h3>
 
-            <p class="project-desc">
-              A detailed investigation and technical write-up documenting findings,
-              methodologies, analysis processes and lessons learned from a hands-on
-              security workshop.
-            </p>
+            <p class="project-desc">Introduced basic network enumeration and remote access concepts. Identified open services with Nmap and connected using Telnet to obtain the user flag. Reinforced securing exposed services.</p>
 
-            <p class="project-skills">
-              Incident Investigation • Security Analysis • Threat Detection • Documentation
-            </p>
+            <p class="project-skills">Skills: Telnet · Nmap · Service Enumeration · Linux Fundamentals</p>
 
             <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
-              <a class="ghost-btn" href="https://github.com/mawia/os-workshop" target="_blank">GitHub</a>
-              <a class="ghost-btn" href="/projects/os-workshop/">View Details</a>
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
             </div>
           </div>
         </article>
 
-        <!-- Project Card 2 -->
+        <!-- HTB Room: Fawn -->
         <article class="project-card">
           <div class="project-inner">
-            <h3 class="project-title">Troxana Threat Intelligence Project</h3>
+            <h3 class="project-title">Fawn — Starting Point (HTB)</h3>
 
-            <p class="project-desc">
-              Research project focused on analyzing threat indicators,
-              investigating suspicious activity and profiling attacker
-              techniques through practical analysis.
-            </p>
+            <p class="project-desc">Explored FTP and anonymous authentication; enumerated accessible files and retrieved sensitive information from a misconfigured FTP service. Demonstrated how insecure file-sharing leads to information disclosure.</p>
 
-            <p class="project-skills">
-              Threat Intelligence • OSINT • Threat Analysis • Cyber Research
-            </p>
+            <p class="project-skills">Skills: FTP · Anonymous Login · Enumeration · Information Gathering</p>
 
             <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
-              <a class="ghost-btn" href="https://github.com/mawia/troxana" target="_blank">GitHub</a>
-              <a class="ghost-btn" href="/projects/troxana/">View Details</a>
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
             </div>
           </div>
         </article>
 
-        <!-- Project Card 3 -->
+        <!-- HTB Room: Dancing -->
+        <article class="project-card">
+          <div class="project-inner">
+            <h3 class="project-title">Dancing — Starting Point (HTB)</h3>
+
+            <p class="project-desc">Investigated SMB network shares, enumerated available shares and accessed exposed files. Used SMB tools to navigate remote directories and retrieve flags, gaining hands-on experience with Windows file-sharing services.</p>
+
+            <p class="project-skills">Skills: SMB Enumeration · Windows Networking · SMBclient · Share Discovery</p>
+
+            <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HTB Room: Redeemer -->
         <article class="project-card coming-soon">
           <div class="project-inner">
-            <div class="coming-badge">Coming Soon</div>
+            <div class="coming-badge">Redeemer</div>
 
-            <h3 class="project-title">Upcoming Projects</h3>
+            <h3 class="project-title">Redeemer — Starting Point (HTB)</h3>
 
-            <p class="project-desc">
-              More forensic investigations, SOC case studies and CTF write-ups
-              will be added as the portfolio grows.
-            </p>
+            <p class="project-desc">Worked with a Redis in-memory database service: connected to an exposed Redis instance, enumerated stored data and extracted information. Learned risks of publicly accessible database services.</p>
 
-            <p class="project-skills">
-              Digital Forensics • SOC Operations • Threat Hunting • Malware Analysis
-            </p>
+            <p class="project-skills">Skills: Redis · Database Enumeration · Service Discovery · Information Extraction</p>
 
             <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
-              <a class="ghost-btn muted" href="#">GitHub</a>
-              <a class="ghost-btn muted" href="#">View Details</a>
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HTB Room: Appointment -->
+        <article class="project-card">
+          <div class="project-inner">
+            <h3 class="project-title">Appointment — Starting Point (HTB)</h3>
+
+            <p class="project-desc">Assessed a web application's authentication mechanism and exploited a SQL Injection in the login form to bypass controls. Gained access to restricted functionality and learned the impact of improper input validation.</p>
+
+            <p class="project-skills">Skills: SQL Injection · Web Security Testing · Authentication Bypass · Input Validation</p>
+
+            <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HTB Room: Sequel -->
+        <article class="project-card">
+          <div class="project-inner">
+            <h3 class="project-title">Sequel — Starting Point (HTB)</h3>
+
+            <p class="project-desc">Enumerated a vulnerable MySQL service, identified a misconfiguration allowing unauthenticated access, and executed SQL queries to explore the database and retrieve the flag. Practiced database enumeration and SQL usage.</p>
+
+            <p class="project-skills">Skills: MySQL · SQL · Database Enumeration · Information Gathering · Linux</p>
+
+            <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HTB Room: Crocodile -->
+        <article class="project-card">
+          <div class="project-inner">
+            <h3 class="project-title">Crocodile — Starting Point (HTB)</h3>
+
+            <p class="project-desc">Enumerated a misconfigured FTP service allowing anonymous login, discovered sensitive files with cleartext credentials, performed web enumeration and directory fuzzing to find an admin login, and used discovered credentials to gain access.</p>
+
+            <p class="project-skills">Skills: FTP Enumeration · Anonymous FTP · Credential Discovery · Directory Fuzzing · Gobuster · Web Enumeration · Authentication Testing</p>
+
+            <div style="display:flex; gap:10px; margin-top:14px; align-items:center;">
+              <a class="ghost-btn muted" href="#" aria-disabled="true">Writeup (coming)</a>
             </div>
           </div>
         </article>
@@ -157,16 +197,21 @@
 }
 
 .cta-btn {
-  display:inline-block;
+  display:inline-block !important;
   padding:10px 16px;
   border-radius:8px;
   border:1px solid rgba(245,169,197,0.08);
-  color:var(--neon-pink);
-  text-decoration:none;
-  background:transparent;
-  box-shadow:0 8px 30px rgba(245,169,197,0.03);
+  color:var(--neon-pink) !important;
+  text-decoration:none !important;
+  background:transparent !important;
+  box-shadow:0 8px 30px rgba(245,169,197,0.03) !important;
   transition:transform 180ms, box-shadow 180ms;
+  opacity:1 !important;
+  visibility:visible !important;
+  z-index:80 !important;
 }
+
+#view-projects-cta { position:relative; z-index:90 !important; }
 
 .cta-btn.primary {
   background:linear-gradient(
