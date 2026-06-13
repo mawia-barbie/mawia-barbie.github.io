@@ -27,7 +27,7 @@ layout: home
       <div class="hud-panel">
         <h3 style="color:var(--neon-purple); margin-bottom:8px;">Other Projects</h3>
         <p style="color:var(--muted);">Miscellaneous experiments and small apps.</p>
-        <p style="margin-top:12px;"><a class="neon-btn" href="/categories/other-projects/">Explore</a></p>
+        <p style="margin-top:12px;"><a class="neon-btn" href="https://aidevwell.netlify.app/">Explore</a></p>
       </div>
 
     </div>
