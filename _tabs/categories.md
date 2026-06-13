@@ -21,7 +21,7 @@ layout: home
       <div class="hud-panel">
         <h3 style="color:var(--neon-blue); margin-bottom:8px;">Python Tools</h3>
         <p style="color:var(--muted);">Scripts and tools for automation, scanning, and exploitation.</p>
-        <p style="margin-top:12px;"><a class="neon-btn" href="/categories/python-tools/">Explore</a></p>
+        <p style="margin-top:12px;"><a class="neon-btn" href="https://github.com/mawia-barbie/portscanner_with-_nmap">Explore</a></p>
       </div>
 
       <div class="hud-panel">
