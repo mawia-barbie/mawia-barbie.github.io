@@ -9,29 +9,24 @@
       href="{{ '/assets/css/jekyll-theme-chirpy.css' | relative_url }}"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
     <style>
-      /* Hide category/tag links across the site, but allow the top-nav category link to remain visible */
-      a[href^="/categories"],
-      a[href*="/categories/"],
-      a[href^="/tags"],
-      a[href*="/tags/"] {
-        display: none !important;
-      }
-      /* Re-enable the categories link inside the top navigation */
-      .top-nav a[href^="/categories"],
-      .top-nav a[href*="/categories/"] {
-        display: inline-block !important;
-      }
-
+      /* Unified neon cyberpunk UI for all pages using the `home` layout */
       :root {
-        --neon-pink: #f5a9c5;
+        /* Colors aligned with your Tailwind config / design guide */
+        --primary: #ffafd7; /* primary accent (pink) */
+        --neon-pink: var(--primary);
         --neon-blue: #22d3ee;
         --neon-purple: #8b5cf6;
-        --bg-dark: #0b0f19;
-        --muted: #8b949e;
+        --bg-dark: #131315; /* background used across design */
+        --on-background: #e5e1e4;
+        --muted: #dac0ca;
       }
 
       html,
@@ -39,26 +34,31 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        background:
-          radial-gradient(
-            circle at 10% 10%,
-            rgba(245, 169, 197, 0.03),
-            transparent 8%
-          ),
-          radial-gradient(
-            circle at 90% 90%,
-            rgba(139, 92, 246, 0.03),
-            transparent 20%
-          ),
-          linear-gradient(135deg, #07070b 0%, var(--bg-dark) 60%);
-        color: #e6edf3;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        color: var(--on-background);
+        background-color: var(--bg-dark);
       }
 
       body {
-        font-family: "Orbitron", "Share Tech Mono", monospace;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial;
         line-height: 1.35;
+      }
+
+      /* Code / mono font for labels and terminal accents */
+      .font-code-sm,
+      pre,
+      code,
+      kbd,
+      .label-mono {
+        font-family:
+          "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+          monospace;
       }
 
       /* Ensure content fills the viewport and allow three-column layout */
@@ -147,7 +147,6 @@
       /* Utility overrides to ensure inline-styled elements are visible */
       [style] h1,
       h1[style] {
-        /* Force inline-styled headings to use the neon pink so Home matches About */
         color: var(--neon-pink) !important;
         text-shadow: 0 0 30px var(--neon-pink) !important;
       }

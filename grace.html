@@ -1,0 +1,927 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GRACE_MAWIA.EXE // CYBER_SENTINEL</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      /* Typography */
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap");
+      :root {
+        --primary: #ffafd7; /* main accent pink */
+        --neon-pink: var(--primary);
+        --neon-blue: #22d3ee;
+        --neon-purple: #8b5cf6;
+        --bg-dark: #131315;
+        --on-background: #e5e1e4;
+        --muted: #dac0ca;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-dark) !important;
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(255, 175, 215, 0.03) 1px,
+          transparent 0
+        );
+        background-size: 32px 32px;
+        color: var(--on-background) !important;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
+      }
+
+      /* Mono font for code/labels */
+      .font-code-sm,
+      code,
+      pre,
+      kbd,
+      .label-caps,
+      .font-label-caps {
+        font-family:
+          "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+          monospace !important;
+      }
+
+      /* Glass card visual */
+      .glass-card {
+        background: rgba(22, 22, 26, 0.8) !important;
+        backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.06) !important;
+        color: var(--muted) !important;
+      }
+
+      /* Accent mapping for Tailwind-like utility classes used across files */
+      .text-primary,
+      .bg-primary,
+      .border-primary,
+      .shadow-primary {
+        color: var(--primary) !important;
+      }
+      .bg-primary {
+        background-color: var(--primary) !important;
+      }
+      .border-primary {
+        border-color: rgba(255, 175, 215, 0.18) !important;
+      }
+      .text-on-surface,
+      .text-on-surface-variant {
+        color: var(--muted) !important;
+      }
+      .text-secondary,
+      .bg-secondary {
+        color: #e9b9d3 !important;
+      }
+
+      /* Headings */
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--on-background) !important;
+      }
+      h1 span,
+      .text-primary {
+        color: var(--primary) !important;
+        text-shadow: 0 0 15px rgba(255, 175, 215, 0.45);
+      }
+
+      /* Buttons & CTAs */
+      .bg-primary,
+      .cta-btn,
+      .neon-btn,
+      .contact-btn,
+      .ghost-btn {
+        color: #0b0f19 !important;
+      }
+      .cta-btn.primary,
+      .bg-primary {
+        box-shadow: 0 8px 30px rgba(255, 175, 215, 0.12) !important;
+      }
+
+      /* Ensure labels and small caps use mono font and neon color */
+      .font-label-caps,
+      .text-label-caps {
+        font-family: "JetBrains Mono", monospace !important;
+        color: var(--primary) !important;
+      }
+
+      /* Utility tweaks for progress bars and small UI accents */
+      .bg-surface-container,
+      .surface-container {
+        background-color: rgba(20, 20, 20, 0.6) !important;
+      }
+      .bg-surface {
+        background-color: var(--bg-dark) !important;
+      }
+
+      /* Selection */
+      ::selection {
+        background: rgba(255, 175, 215, 0.18);
+        color: var(--on-background);
+      }
+
+      /* Material symbols sizing override */
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
+      /* Small responsive fix */
+      @media (max-width: 820px) {
+        .home-inner {
+          padding: 18px !important;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="text-on-surface font-body-base selection:bg-primary/30 selection:text-primary"
+  >
+    <!-- Top Navigation -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30"
+    >
+      <div
+        class="font-code-sm text-code-sm font-bold text-primary drop-shadow-[0_0_8px_rgba(255,175,215,0.6)]"
+      >
+        GRACE_MAWIA.EXE
+      </div>
+      <nav
+        class="hidden md:flex items-center gap-8 font-code-sm text-code-sm uppercase tracking-widest"
+      >
+        <a
+          class="text-primary border-b border-primary drop-shadow-[0_0_5px_rgba(255,175,215,0.4)]"
+          href="#"
+          >root</a
+        >
+        <a
+          class="text-on-surface-variant hover:text-primary transition-colors duration-300"
+          href="#services"
+          >services</a
+        >
+        <a
+          class="text-on-surface-variant hover:text-primary transition-colors duration-300"
+          href="#pentests"
+          >pentests</a
+        >
+        <a
+          class="text-on-surface-variant hover:text-primary transition-colors duration-300"
+          href="#intel"
+          >intel</a
+        >
+      </nav>
+      <div
+        class="font-code-sm text-code-sm uppercase tracking-widest text-primary"
+      >
+        STATUS: CONNECTED
+      </div>
+    </header>
+    <main class="pt-32">
+      <!-- Hero Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap flex flex-col items-center text-center"
+      >
+        <div
+          class="inline-block mb-6 px-4 py-1 glass-card rounded-full border border-primary/20"
+        >
+          <span
+            class="text-label-caps font-label-caps text-primary uppercase tracking-widest"
+            >Digital Forensics // Incident Response</span
+          >
+        </div>
+        <h1
+          class="font-display-lg text-display-lg-mobile md:text-display-lg mb-4 text-white uppercase italic tracking-tighter"
+        >
+          Grace
+          <span
+            class="text-primary drop-shadow-[0_0_15px_rgba(255,175,215,0.5)]"
+            >Mawia</span
+          >
+        </h1>
+        <p
+          class="font-code-sm text-code-sm text-secondary mb-8 max-w-2xl uppercase tracking-widest"
+        >
+          SOC Analyst | Digital Forensics &amp; Incident Response | CTF Player
+        </p>
+        <p class="text-on-surface-variant text-body-base max-w-xl mb-12">
+          "I investigate threats, analyze digital evidence, and sharpen my
+          skills through hands-on cybersecurity labs and CTF challenges."
+        </p>
+        <div class="flex gap-4">
+          <a
+            class="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase rounded-lg hover:brightness-110 active:scale-95 transition-all duration-150 shadow-[0_0_20px_rgba(255,175,215,0.3)]"
+            href="#pentests"
+          >
+            View Projects
+          </a>
+          <a
+            class="border border-primary text-primary px-8 py-4 font-label-caps text-label-caps uppercase rounded-lg hover:bg-primary/10 active:scale-95 transition-all duration-150"
+            href="#contact"
+          >
+            Contact Me
+          </a>
+        </div>
+      </section>
+      <!-- Security Work (Practice Areas) -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap"
+        id="services"
+      >
+        <h2
+          class="font-headline-md text-headline-md text-white mb-12 uppercase tracking-widest border-l-4 border-primary pl-6"
+        >
+          Practice_Areas.log
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div
+            class="glass-card p-6 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >monitoring</span
+            >
+            <span class="font-code-sm text-code-sm text-on-surface uppercase"
+              >SOC Monitoring</span
+            >
+          </div>
+          <div
+            class="glass-card p-6 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >search_insights</span
+            >
+            <span class="font-code-sm text-code-sm text-on-surface uppercase"
+              >Digital Forensics</span
+            >
+          </div>
+          <div
+            class="glass-card p-6 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >emergency_home</span
+            >
+            <span class="font-code-sm text-code-sm text-on-surface uppercase"
+              >Incident Response</span
+            >
+          </div>
+          <div
+            class="glass-card p-6 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >security</span
+            >
+            <span class="font-code-sm text-code-sm text-on-surface uppercase"
+              >Threat Analysis</span
+            >
+          </div>
+          <div
+            class="glass-card p-6 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >terminal</span
+            >
+            <span class="font-code-sm text-code-sm text-on-surface uppercase"
+              >CTF Writeups</span
+            >
+          </div>
+          <div
+            class="glass-card p-6 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-4xl mb-4 group-hover:scale-110 transition-transform"
+              >bug_report</span
+            >
+            <span class="font-code-sm text-code-sm text-on-surface uppercase"
+              >Vulnerability Research</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Project Categories (Bento Grid) -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap"
+        id="intel"
+      >
+        <h2
+          class="font-headline-md text-headline-md text-white mb-12 uppercase tracking-widest border-l-4 border-primary pl-6"
+        >
+          Project_Archive.db
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="glass-card overflow-hidden group hover:shadow-[0_0_30px_rgba(255,175,215,0.1)] transition-all duration-500 flex flex-col"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Close up of high-end laptop keyboard illuminated by soft pink and purple neon lights with complex lines of python code visible on a blurred background. The style is professional tech aesthetic, cyberpunk influence, dark moody lighting with vibrant accents."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqUd_5-IuSViveZVN9YX6iMgayyttLj3SOqT0pFEZsNqe1AsWbXdCcl9Uk9oMw5C4WQwT44FFWXmSsE-Scs7AzIbeLKAMTgx6vpSVG0fsMx7bbL3JQiOJ-Pun9GfYyBD3JCS9mpltvetypLGAu0aAS1IQle5le_ADPjo9kWc-F7fy1gLBCcub_ya-In4zKzvaBDRLUqNQKHjZP6YfEvnnE4q2h7ISqzVdpL2jyclzxeMQGdCUtJLW_8mDsqc4Dpm7ji0r0fkhexIzA"
+              />
+            </div>
+            <div class="p-8 flex-grow">
+              <h3
+                class="font-code-sm text-headline-md text-primary mb-4 uppercase"
+              >
+                Python Scripts
+              </h3>
+              <p class="text-on-surface-variant mb-6 text-sm">
+                Automated security tooling for log analysis, web scraping, and
+                packet manipulation built for rapid assessment.
+              </p>
+              <a
+                class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-2 transition-colors uppercase"
+                href="#"
+              >
+                View Category
+                <span class="material-symbols-outlined text-xs"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+          <div
+            class="glass-card overflow-hidden group hover:shadow-[0_0_30px_rgba(255,175,215,0.1)] transition-all duration-500 flex flex-col"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="A clean top-down view of a modern workstation with multiple dark-mode terminal windows showing forensic data analysis on high-resolution screens. Subtle pink ambient lighting glints off the hardware. Cinematic tech aesthetic, dark theme, sophisticated cybersecurity analyst desk."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-w83F8NR04MJCKqiiWcQEBlDEe4fKq8Fh8hw4f6pAuhtAG7GVWGmoCHi3d-wUznbRsWw7gGQgSoJdv3mGt4YVprYQ5_FXKcxBBeBPvVzzZYMt58GlC4MagGEwyzfn4hqZUy2A4XsdUGe185YMhOfBW-_Cg6adOjB1a3roBspiA9--vJEvqr7nuVR0nY78WpdN1RBKtR4H5LWDIWFofnM5sArIXeAatmQCSKBoZeTEd977pAVbN9_HqVj0pdC6B2SKBgi0ML4T255p"
+              />
+            </div>
+            <div class="p-8 flex-grow">
+              <h3
+                class="font-code-sm text-headline-md text-primary mb-4 uppercase"
+              >
+                Sherlock Rooms
+              </h3>
+              <p class="text-on-surface-variant mb-6 text-sm">
+                In-depth investigation write-ups for complex blue-team scenarios
+                focusing on host-based forensics.
+              </p>
+              <a
+                class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-2 transition-colors uppercase"
+                href="#"
+              >
+                View Category
+                <span class="material-symbols-outlined text-xs"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+          <div
+            class="glass-card overflow-hidden group hover:shadow-[0_0_30px_rgba(255,175,215,0.1)] transition-all duration-500 flex flex-col"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Digital representation of network nodes connected by glowing pink lines over a deep charcoal background with data packets floating through a 3D grid. High-tech, futuristic networking visual, glowing neon pink aesthetics, clean geometric composition."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJyqROIrpzgp3zxjGn7YZfwgwvUvoBnNtbWNaPowvykwA2VbJlyyfaLv6bEGOwQW_DpXIyP-XVls_Tsg_4JQGRvZzr6bTYI6kiiXQdMsosh3OGiO8yNzLXQm6IzuxMHDcVd4k4SU_JMlfkrqL8Xh9IV8X-IMCn4w96ViG6ezm9v3ehCXiY04kwMW1zQSepv7X0oTLleAVi3UgC-YL6Eo1AfDMUDEyGGeNkTu7QB4KK3DwxKdZE1jtqvieK5Lc7QrbMcAOPGQhSVx6A"
+              />
+            </div>
+            <div class="p-8 flex-grow">
+              <h3
+                class="font-code-sm text-headline-md text-primary mb-4 uppercase"
+              >
+                HTB Rooms
+              </h3>
+              <p class="text-on-surface-variant mb-6 text-sm">
+                Exploitation paths and methodology for retired and active
+                machines on the Hack The Box platform.
+              </p>
+              <a
+                class="font-label-caps text-label-caps text-secondary hover:text-primary flex items-center gap-2 transition-colors uppercase"
+                href="#"
+              >
+                View Category
+                <span class="material-symbols-outlined text-xs"
+                  >arrow_forward</span
+                >
+              </a>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="glass-card p-8 border-l-2 border-primary group">
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-secondary text-4xl"
+                >cloud_done</span
+              >
+              <span class="text-primary font-code-sm">04</span>
+            </div>
+            <h3 class="font-code-sm text-headline-md text-white mb-4 uppercase">
+              TryHackMe Labs
+            </h3>
+            <p class="text-on-surface-variant mb-6 text-sm">
+              Defensive and offensive learning pathways completed with a focus
+              on AD and Web Security.
+            </p>
+            <a
+              class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase"
+              href="#"
+              >Explore Path</a
+            >
+          </div>
+          <div class="glass-card p-8 border-l-2 border-primary group">
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-secondary text-4xl"
+                >biotech</span
+              >
+              <span class="text-primary font-code-sm">05</span>
+            </div>
+            <h3 class="font-code-sm text-headline-md text-white mb-4 uppercase">
+              Forensics Labs
+            </h3>
+            <p class="text-on-surface-variant mb-6 text-sm">
+              Documentation of laboratory experiments using Autopsy and
+              Volatility for artifact recovery.
+            </p>
+            <a
+              class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase"
+              href="#"
+              >Review Evidence</a
+            >
+          </div>
+          <div class="glass-card p-8 border-l-2 border-primary group">
+            <div class="flex justify-between items-start mb-6">
+              <span class="material-symbols-outlined text-secondary text-4xl"
+                >description</span
+              >
+              <span class="text-primary font-code-sm">06</span>
+            </div>
+            <h3 class="font-code-sm text-headline-md text-white mb-4 uppercase">
+              IR Notes
+            </h3>
+            <p class="text-on-surface-variant mb-6 text-sm">
+              Incident Response playbooks and technical field notes for rapid
+              containment and eradication.
+            </p>
+            <a
+              class="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors uppercase"
+              href="#"
+              >Access Manual</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- HTB Rooms (Futuristic Cards) -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap"
+        id="pentests"
+      >
+        <h2
+          class="font-headline-md text-headline-md text-white mb-12 uppercase tracking-widest border-l-4 border-primary pl-6"
+        >
+          HTB_Pwned.sys
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Blue -->
+          <div
+            class="glass-card p-6 border-t border-primary/20 hover:border-primary transition-all"
+          >
+            <div class="flex justify-between items-center mb-4">
+              <span
+                class="px-2 py-0.5 bg-green-900/40 text-green-400 text-[10px] font-code-sm border border-green-400/30 uppercase"
+                >Easy</span
+              >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <h4 class="font-code-sm text-primary mb-2 uppercase">Blue</h4>
+            <div class="space-y-1 mb-4">
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                Windows exploitation
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> SMB
+                enumeration
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                EternalBlue
+              </div>
+            </div>
+            <div class="h-1 bg-surface-container overflow-hidden rounded-full">
+              <div
+                class="h-full bg-primary w-full shadow-[0_0_10px_#ffafd7]"
+              ></div>
+            </div>
+          </div>
+          <!-- Lame -->
+          <div
+            class="glass-card p-6 border-t border-primary/20 hover:border-primary transition-all"
+          >
+            <div class="flex justify-between items-center mb-4">
+              <span
+                class="px-2 py-0.5 bg-green-900/40 text-green-400 text-[10px] font-code-sm border border-green-400/30 uppercase"
+                >Easy</span
+              >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <h4 class="font-code-sm text-primary mb-2 uppercase">Lame</h4>
+            <div class="space-y-1 mb-4">
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                Linux exploitation
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Nmap
+                scanning
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                Service enumeration
+              </div>
+            </div>
+            <div class="h-1 bg-surface-container overflow-hidden rounded-full">
+              <div
+                class="h-full bg-primary w-full shadow-[0_0_10px_#ffafd7]"
+              ></div>
+            </div>
+          </div>
+          <!-- Jerry -->
+          <div
+            class="glass-card p-6 border-t border-primary/20 hover:border-primary transition-all"
+          >
+            <div class="flex justify-between items-center mb-4">
+              <span
+                class="px-2 py-0.5 bg-green-900/40 text-green-400 text-[10px] font-code-sm border border-green-400/30 uppercase"
+                >Easy</span
+              >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <h4 class="font-code-sm text-primary mb-2 uppercase">Jerry</h4>
+            <div class="space-y-1 mb-4">
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Web
+                Server Misconfig
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                Tomcat exploitation
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                Credentials recovery
+              </div>
+            </div>
+            <div class="h-1 bg-surface-container overflow-hidden rounded-full">
+              <div
+                class="h-full bg-primary w-full shadow-[0_0_10px_#ffafd7]"
+              ></div>
+            </div>
+          </div>
+          <!-- Netmon -->
+          <div
+            class="glass-card p-6 border-t border-primary/20 hover:border-primary transition-all"
+          >
+            <div class="flex justify-between items-center mb-4">
+              <span
+                class="px-2 py-0.5 bg-green-900/40 text-green-400 text-[10px] font-code-sm border border-green-400/30 uppercase"
+                >Easy</span
+              >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <h4 class="font-code-sm text-primary mb-2 uppercase">Netmon</h4>
+            <div class="space-y-1 mb-4">
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                Network Monitoring
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> FTP
+                enumeration
+              </div>
+              <div
+                class="text-[11px] text-on-surface-variant uppercase flex items-center gap-2"
+              >
+                <span class="w-1.5 h-1.5 bg-secondary rounded-full"></span> Web
+                App analysis
+              </div>
+            </div>
+            <div class="h-1 bg-surface-container overflow-hidden rounded-full">
+              <div
+                class="h-full bg-primary w-full shadow-[0_0_10px_#ffafd7]"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About Me Section -->
+      <section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative">
+            <div
+              class="absolute -inset-4 border border-primary/20 rounded-xl rotate-3"
+            ></div>
+            <div
+              class="absolute -inset-4 border border-secondary/20 rounded-xl -rotate-3"
+            ></div>
+            <div class="glass-card p-4 rounded-xl relative">
+              <img
+                class="rounded-lg w-full grayscale contrast-125 brightness-90 hover:grayscale-0 transition-all duration-1000"
+                data-alt="Cinematic portrait of a professional female cybersecurity analyst in a dark environment illuminated by pink and cyan computer light. She is looking thoughtfully at digital code projected in front of her. Minimalist, premium hacker aesthetic, sharp focus, professional lighting, moody atmosphere."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAylwB3X7bfC5gsuD3vOv9Na1Rf1lW7Q0OQh6GoBsade9NQiJxszoYrXWzyEQvOZp2Buox857B6-1FQbVwTm3HzWQU5n0AzKzYyjMCe59qSR9qEtXtHIDDj0eWF0y9EboQyxw3em0b0dO04CVHumnLhn7qFqMVfuh6t05K85DZTpzBAUfMg5hDUFRblNsFeEUqmKgE6L9CFHA1kPv977yU8LGfgklWcv9Yif87lXuudGja1u_VnJfSlD9v7e1aHgN69wSlYvgvZlhXO"
+              />
+            </div>
+          </div>
+          <div>
+            <h2
+              class="font-headline-md text-headline-md text-white mb-6 uppercase tracking-widest border-l-4 border-primary pl-6"
+            >
+              System_Identity.info
+            </h2>
+            <div
+              class="font-code-sm text-primary mb-4 uppercase tracking-widest"
+            >
+              &gt;&gt; Executing bio_dump.sh
+            </div>
+            <div class="space-y-6 text-on-surface-variant">
+              <p>
+                I am a cybersecurity professional with a deep obsession for the
+                adversarial mindset. My journey began in the dark corners of
+                terminal windows, evolving into a structured career in SOC
+                Analysis and Digital Forensics.
+              </p>
+              <p>
+                Currently, I focus on identifying sophisticated threat patterns
+                and building resilient defensive postures. When I'm not
+                monitoring the perimeter, I'm deep in CTF machines or
+                documenting my findings to help the community grow.
+              </p>
+              <div
+                class="bg-surface-container p-6 rounded-lg font-code-sm text-sm border border-outline-variant/30"
+              >
+                <div class="flex items-center gap-2 text-primary mb-2">
+                  <span class="material-symbols-outlined text-sm"
+                    >terminal</span
+                  >
+                  <span>Core Values:</span>
+                </div>
+                <ul class="space-y-1 text-secondary">
+                  <li>- Relentless Curiosity</li>
+                  <li>- Technical Precision</li>
+                  <li>- Continuous Skill-Pivoting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Skills & Tools -->
+      <section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+        <h2
+          class="font-headline-md text-headline-md text-white mb-12 uppercase text-center tracking-widest"
+        >
+          Tool_Kit.bin
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Splunk</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Wireshark</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Autopsy</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Volatility</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Nmap</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Burp Suite</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Linux</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Python</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Bash</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >Git</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >SIEM</span
+          >
+          <span
+            class="px-6 py-2 glass-card font-code-sm text-primary border-primary/30 hover:border-primary transition-colors uppercase cursor-default"
+            >YARA</span
+          >
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap"
+        id="contact"
+      >
+        <div class="glass-card p-12 relative overflow-hidden rounded-2xl">
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl -mr-32 -mt-32"
+          ></div>
+          <div class="relative z-10 text-center max-w-2xl mx-auto">
+            <h2
+              class="font-headline-md text-headline-md text-white mb-6 uppercase tracking-widest"
+            >
+              Establish_Connection.sh
+            </h2>
+            <p class="text-on-surface-variant mb-12">
+              Looking for a SOC specialist or collaboration on a forensics
+              project? Reach out through the encrypted channels below.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8">
+              <a
+                class="group flex flex-col items-center gap-3"
+                href="mailto:contact@grace-mawia.exe"
+              >
+                <div
+                  class="w-16 h-16 rounded-full flex items-center justify-center border border-primary/30 group-hover:bg-primary/20 group-hover:border-primary transition-all duration-300"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
+                    >mail</span
+                  >
+                </div>
+                <span
+                  class="font-code-sm text-xs text-secondary uppercase tracking-widest"
+                  >Email</span
+                >
+              </a>
+              <a class="group flex flex-col items-center gap-3" href="#">
+                <div
+                  class="w-16 h-16 rounded-full flex items-center justify-center border border-primary/30 group-hover:bg-primary/20 group-hover:border-primary transition-all duration-300"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
+                    >link</span
+                  >
+                </div>
+                <span
+                  class="font-code-sm text-xs text-secondary uppercase tracking-widest"
+                  >LinkedIn</span
+                >
+              </a>
+              <a class="group flex flex-col items-center gap-3" href="#">
+                <div
+                  class="w-16 h-16 rounded-full flex items-center justify-center border border-primary/30 group-hover:bg-primary/20 group-hover:border-primary transition-all duration-300"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
+                    >code</span
+                  >
+                </div>
+                <span
+                  class="font-code-sm text-xs text-secondary uppercase tracking-widest"
+                  >GitHub</span
+                >
+              </a>
+              <a class="group flex flex-col items-center gap-3" href="#">
+                <div
+                  class="w-16 h-16 rounded-full flex items-center justify-center border border-primary/30 group-hover:bg-primary/20 group-hover:border-primary transition-all duration-300"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform"
+                    >target</span
+                  >
+                </div>
+                <span
+                  class="font-code-sm text-xs text-secondary uppercase tracking-widest"
+                  >HTB</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-12 px-gutter flex flex-col md:flex-row justify-between items-center gap-base-unit max-w-container-max mx-auto border-t border-outline-variant/20 bg-surface-container-lowest"
+    >
+      <div class="text-label-caps font-label-caps text-secondary">
+        © 2024 GRACE MAWIA // CYBER_SENTINEL
+      </div>
+      <div
+        class="text-center md:text-left my-4 md:my-0 italic text-on-tertiary-fixed-variant text-xs font-code-sm max-w-md"
+      >
+        "The only truly secure system is one that is powered off, cast in a
+        block of concrete and sealed in a lead-lined room with armed guards -
+        and even then I have my doubts."
+      </div>
+      <nav class="flex gap-6 font-code-sm text-code-sm uppercase">
+        <a
+          class="text-on-tertiary-fixed-variant hover:text-primary transition-all duration-300 hover:tracking-widest active:opacity-70"
+          href="#"
+          >GITHUB</a
+        >
+        <a
+          class="text-on-tertiary-fixed-variant hover:text-primary transition-all duration-300 hover:tracking-widest active:opacity-70"
+          href="#"
+          >LINKEDIN</a
+        >
+        <a
+          class="text-on-tertiary-fixed-variant hover:text-primary transition-all duration-300 hover:tracking-widest active:opacity-70"
+          href="#"
+          >TRYHACKME</a
+        >
+        <a
+          class="text-on-tertiary-fixed-variant hover:text-primary transition-all duration-300 hover:tracking-widest active:opacity-70"
+          href="#"
+          >HACKTHEBOX</a
+        >
+      </nav>
+    </footer>
+    <script>
+      // Custom typewriter effect for terminal simulation
+      document.addEventListener("DOMContentLoaded", () => {
+        const terminalLines = [
+          "Initializing system core...",
+          "Bypassing firewalls...",
+          "Loading Grace_Mawia.profile...",
+          "Connection established.",
+        ];
+
+        console.log(
+          "%c SYSTEM INITIALIZED ",
+          "background: #ffafd7; color: #620044; font-weight: bold;",
+        );
+      });
+    </script>
+  </body>
+</html>

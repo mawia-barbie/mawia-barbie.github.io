@@ -88,7 +88,7 @@
         <!-- HTB Room: Redeemer -->
         <article class="project-card coming-soon">
           <div class="project-inner">
-            <div class="coming-badge">Redeemer</div>
+            
 
             <h3 class="project-title">Redeemer — Starting Point (HTB)</h3>
 
@@ -155,13 +155,20 @@
 
 <style>
 :root {
-  --neon-pink: var(--neon-pink, #f5a9c5);
-  --neon-blue: var(--neon-blue, #22d3ee);
-  --muted: var(--muted, #8b949e);
+  /* Use the same primary and background values as grace.html */
+  --primary: #ffafd7; /* main accent */
+  --neon-pink: var(--primary);
+  --neon-blue: #22d3ee;
+  --neon-purple: #8b5cf6;
+  --bg-dark: #131315;
+  --on-background: #e5e1e4;
+  --muted: #dac0ca;
 }
 
-/* Ensure all text inside the home content uses the neon pink by default */
-.home-inner { color: var(--neon-pink) !important; }
+/* Ensure Inter is used for body text and JetBrains Mono for mono labels */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+.home-inner { color: var(--neon-pink) !important; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
 
 .home-viewport {
   background:
@@ -171,177 +178,65 @@
 }
 
 /* Hero */
-.hero {
-  /* Use the neon pink for primary hero text so it matches About */
-  color: var(--neon-pink);
-}
+.hero { color: var(--neon-pink); }
+.hero-name { color: var(--neon-pink); font-weight:800; text-shadow:0 6px 30px rgba(255,175,215,0.08); font-family: 'Inter', sans-serif; }
 
-.hero-bg {
-  position:absolute;
-  inset:0;
-  border-radius:14px;
-  pointer-events:none;
-  opacity:0.03;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.01) 0 1px,
-    transparent 1px 12px
-  );
-  mix-blend-mode:overlay;
-}
+/* Mono for labels and small caps */
+.font-code-sm, .font-label-caps, .label-caps, .term-accent, code, pre, kbd { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace !important; }
+.term-accent { font-family: 'JetBrains Mono', monospace; opacity:0.08; color:var(--neon-pink); }
 
-.hero-name {
-  color:var(--neon-pink);
-  font-weight:800;
-  text-shadow:0 6px 30px rgba(245,169,197,0.08);
-}
-
+/* Buttons / CTAs */
 .cta-btn {
   display:inline-block !important;
   padding:10px 16px;
   border-radius:8px;
-  border:1px solid rgba(245,169,197,0.08);
+  border:1px solid rgba(255,175,215,0.08);
   color:var(--neon-pink) !important;
   text-decoration:none !important;
   background:transparent !important;
-  box-shadow:0 8px 30px rgba(245,169,197,0.03) !important;
+  box-shadow:0 8px 30px rgba(255,175,215,0.03) !important;
   transition:transform 180ms, box-shadow 180ms;
   opacity:1 !important;
   visibility:visible !important;
   z-index:80 !important;
 }
-
-#view-projects-cta { position:relative; z-index:90 !important; }
-
-.cta-btn.primary {
-  background:linear-gradient(
-    90deg,
-    rgba(245,169,197,0.06),
-    rgba(139,92,246,0.04)
-  );
-}
-
-.cta-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 18px 50px rgba(245,169,197,0.1);
-}
-
-.term-accent {
-  font-size:0.95rem;
-}
+.cta-btn.primary { background: linear-gradient(90deg, rgba(255,175,215,0.06), rgba(139,92,246,0.04)); color: #0b0f19 !important; }
+.cta-btn:hover { transform:translateY(-4px); box-shadow:0 18px 50px rgba(255,175,215,0.1); }
 
 /* Projects */
 .project-card {
-  position:relative; border-radius:12px; background:linear-gradient(
-    180deg,
-    rgba(255,255,255,0.02),
-    rgba(255,255,255,0.01)
-  );
+  position:relative;
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   padding:18px;
   color:var(--neon-pink);
-  border:1px solid rgba(245,169,197,0.04);
+  border:1px solid rgba(255,175,215,0.04);
   box-shadow:0 8px 36px rgba(11,15,25,0.6);
   backdrop-filter:blur(8px) saturate(120%);
-  transition:
-    transform 260ms cubic-bezier(.2,.9,.2,1),
-    box-shadow 260ms,
-    border-color 260ms;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), box-shadow 260ms, border-color 260ms;
   overflow:hidden;
 }
+.project-card:hover { transform:translateY(-8px); box-shadow:0 26px 80px rgba(255,175,215,0.12); border-color:rgba(255,175,215,0.14); }
+.project-card .project-title { margin:0 0 8px; color:var(--neon-pink); font-size:1.05rem; }
+.project-desc { color:var(--neon-pink); margin:0 0 10px; }
+.project-skills { color:var(--neon-blue); font-size:0.92rem; margin:0; }
 
-.project-card:hover {
-  transform:translateY(-8px);
-  box-shadow:0 26px 80px rgba(245,169,197,0.12);
-  border-color:rgba(245,169,197,0.14);
-}
+.project-inner { position:relative; z-index:2; }
 
-.project-card .project-title {
-  margin:0 0 8px;
-  color:var(--neon-pink);
-  font-size:1.05rem;
-}
+.coming-badge { display:inline-block; padding:6px 10px; font-size:0.8rem; color:#0b0f19; background:var(--neon-pink); border-radius:999px; font-weight:700; margin-bottom:8px; }
 
-.project-desc {
-  color:var(--neon-pink);
-  margin:0 0 10px;
-}
+.ghost-btn { display:inline-block; padding:8px 12px; border-radius:8px; background:transparent; border:1px solid rgba(139,92,246,0.06); color:var(--neon-pink); text-decoration:none; transition:transform 160ms, box-shadow 160ms; }
+.ghost-btn:hover { transform:translateY(-4px); box-shadow:0 14px 40px rgba(139,92,246,0.08); }
+.ghost-btn.muted { opacity:0.32; pointer-events:none; }
 
-.project-skills {
-  color:var(--neon-blue);
-  font-size:0.92rem;
-  margin:0;
-}
+.project-card::after { content:''; position:absolute; inset:0; background: linear-gradient(90deg, rgba(255,255,255,0.002), transparent 1px); pointer-events:none; mix-blend-mode:overlay; }
 
-.project-inner {
-  position:relative;
-  z-index:2;
-}
+@media (max-width:820px) { .hero-name { font-size:1.8rem; } .project-card { padding:14px; } .home-inner { padding:18px; } }
 
-.coming-badge {
-  display:inline-block;
-  padding:6px 10px;
-  font-size:0.8rem;
-  color:#0b0f19;
-  background:var(--neon-pink);
-  border-radius:999px;
-  font-weight:700;
-  margin-bottom:8px;
-}
-
-.ghost-btn {
-  display:inline-block;
-  padding:8px 12px;
-  border-radius:8px;
-  background:transparent;
-  border:1px solid rgba(139,92,246,0.06);
-  color:var(--neon-pink);
-  text-decoration:none;
-  transition:transform 160ms, box-shadow 160ms;
-}
-
-.ghost-btn:hover {
-  transform:translateY(-4px);
-  box-shadow:0 14px 40px rgba(139,92,246,0.08);
-}
-
-.ghost-btn.muted {
-  opacity:0.32;
-  pointer-events:none;
-}
-
-.project-card::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0.002),
-      transparent 1px
-    );
-  pointer-events:none;
-  mix-blend-mode:overlay;
-}
-
-@media (max-width:820px) {
-  .hero-name {
-    font-size:1.8rem;
-  }
-
-  .project-card {
-    padding:14px;
-  }
-
-  .home-inner {
-    padding:18px;
-  }
-}
-
-/* Force home content text to use the same neon-pink as the About page */
-.home-inner, .home-inner *:not(.coming-badge) {
-  color: var(--neon-pink) !important;
-}
+/* Force home content text to use the same neon-pink as the rest of the site */
+.home-inner, .home-inner *:not(.coming-badge) { color: var(--neon-pink) !important; }
 
 /* Keep badges and small UI accents as designed */
 .coming-badge { color: #0b0f19 !important; }
+
 </style>
