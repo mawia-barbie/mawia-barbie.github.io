@@ -15,6 +15,10 @@
           <span class="hero-role-badge dfir">DFIR Specialist</span>
         </div>
         <p class="hero-tagline">"Hunt threats. Analyze evidence. Defend forward."</p>
+        <p class="hero-sub-summary">
+          Cybersecurity Analyst focused on SOC operations, digital forensics, and threat detection.<br>
+          Driven by curiosity, hands-on learning, and a passion for solving complex security challenges.
+        </p>
       </div>
     </section>
 
@@ -335,6 +339,16 @@
   margin-top: 18px;
   font-style: italic;
   letter-spacing: 0.5px;
+}
+
+.hero-sub-summary {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(196, 176, 204, 0.65);
+  margin: 24px auto 0;
+  max-width: 580px;
+  text-align: center;
 }
 
 /* ── Section Block ── */
