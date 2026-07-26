@@ -9,7 +9,7 @@
       href="{{ '/assets/css/jekyll-theme-chirpy.css' | relative_url }}"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -17,260 +17,368 @@
       rel="stylesheet"
     />
     <style>
-      /* Unified neon cyberpunk UI for all pages using the `home` layout */
+      /* ── Global Design Tokens: Mauve Terminal Theme ── */
       :root {
-        /* Colors aligned with your Tailwind config / design guide */
-        --primary: #ffafd7; /* primary accent (pink) */
-        --neon-pink: var(--primary);
+        --mauve: #c9a0dc;
+        --mauve-light: #e6c8f0;
+        --mauve-dark: #9b6fa0;
+        --mauve-glow: rgba(201, 160, 220, 0.35);
+        --terminal-bg: #0d0b14;
+        --bg-dark: #0f0d1a;
+        --bg-card: rgba(201, 160, 220, 0.04);
+        --on-background: #e5e1e4;
+        --muted: #c4b0cc;
+
+        --neon-pink: var(--mauve);
         --neon-blue: #22d3ee;
         --neon-purple: #8b5cf6;
-        --bg-dark: #131315; /* background used across design */
-        --on-background: #e5e1e4;
-        --muted: #dac0ca;
+
+        --primary: var(--mauve);
       }
 
-      html,
-      body {
+      html, body {
         height: 100%;
         margin: 0;
         padding: 0;
         color: var(--on-background);
         background-color: var(--bg-dark);
+        scroll-behavior: smooth;
       }
 
       body {
-        font-family:
-          "Inter",
-          system-ui,
-          -apple-system,
-          "Segoe UI",
-          Roboto,
-          "Helvetica Neue",
-          Arial;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
         line-height: 1.35;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
-      /* Code / mono font for labels and terminal accents */
-      .font-code-sm,
-      pre,
-      code,
-      kbd,
-      .label-mono {
-        font-family:
-          "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-          monospace;
+      .font-mono, code, pre, kbd, .label-mono {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace !important;
       }
 
-      /* Ensure content fills the viewport and allow three-column layout */
       .site-viewport {
         display: flex;
         min-height: 100vh;
         width: 100%;
+        position: relative;
       }
 
-      /* Headings and neon accent */
-      h1 {
-        color: #e6edf3;
-        font-weight: 700;
-        letter-spacing: 0.6px;
-        text-shadow:
-          0 0 12px rgba(245, 169, 197, 0.08),
-          0 2px 0 rgba(0, 0, 0, 0.25);
+      h1, h2, h3, h4 { color: var(--mauve-light) !important; }
+      p { color: var(--muted); }
+      a, a:link, a:visited { color: var(--mauve) !important; text-decoration: none !important; }
+      a:hover { color: var(--mauve-light) !important; }
+
+      ::selection { background: rgba(201, 160, 220, 0.2); color: #fff; }
+
+      /* ── BOOT SCREEN ── */
+      #boot-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #07060b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "JetBrains Mono", monospace;
+        color: var(--mauve);
+        transition: opacity 0.8s ease;
       }
-      h1 span {
-        color: var(--neon-pink) !important;
-        text-shadow: 0 0 30px var(--neon-pink) !important;
-      }
-      h3,
-      h4 {
-        color: var(--neon-pink) !important;
-        margin: 0 0 8px 0;
+      #boot-screen.hidden {
+        opacity: 0;
+        pointer-events: none;
       }
 
-      p {
-        color: var(--muted);
+      .boot-terminal {
+        width: min(720px, 90vw);
+        background: rgba(13, 11, 20, 0.95);
+        border: 1px solid rgba(201, 160, 220, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 60px rgba(201, 160, 220, 0.06), inset 0 0 60px rgba(201, 160, 220, 0.02);
       }
 
-      a,
-      a:link,
-      a:visited {
-        color: var(--neon-pink) !important;
-        text-decoration: none !important;
+      .boot-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 16px;
+        background: rgba(201, 160, 220, 0.04);
+        border-bottom: 1px solid rgba(201, 160, 220, 0.08);
       }
-
-      /* HUD, panels and glows */
-      .hud-panel {
-        background: rgba(11, 15, 25, 0.65) !important;
-        border: 1px solid rgba(245, 169, 197, 0.12) !important;
-        box-shadow: 0 6px 30px rgba(245, 169, 197, 0.04) !important;
-        backdrop-filter: blur(8px) !important;
-        padding: 14px !important;
-        border-radius: 6px !important;
-      }
-
-      /* Buttons */
-      .neon-btn {
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 6px;
-        border: 1px solid rgba(245, 169, 197, 0.25);
-        background: transparent;
-        color: var(--neon-pink);
-        box-shadow: 0 6px 24px rgba(245, 169, 197, 0.06);
-      }
-      .neon-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 40px rgba(245, 169, 197, 0.12);
-      }
-
-      /* Radar / circular accents */
-      .radar {
+      .boot-dot {
+        width: 10px; height: 10px;
         border-radius: 50%;
-        border: 1px solid rgba(0, 255, 255, 0.12) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.06) !important;
+      }
+      .boot-dot.red { background: #ff5f56; }
+      .boot-dot.yellow { background: #ffbd2e; }
+      .boot-dot.green { background: #27c93f; }
+      .boot-title {
+        font-size: 11px;
+        color: rgba(201, 160, 220, 0.4);
+        margin-left: 8px;
+        letter-spacing: 0.5px;
       }
 
-      /* Footer glow */
-      .glow-footer {
-        background: linear-gradient(
-          to top,
-          rgba(139, 92, 246, 0.12),
-          transparent
-        );
-        height: 120px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
+      .boot-body {
+        padding: 24px 28px;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      /* Utility overrides to ensure inline-styled elements are visible */
-      [style] h1,
-      h1[style] {
-        color: var(--neon-pink) !important;
-        text-shadow: 0 0 30px var(--neon-pink) !important;
+      .boot-line {
+        font-size: 13px;
+        line-height: 1.7;
+        opacity: 0;
+        animation: bootFadeIn 0.3s forwards;
       }
-      [style] h1 span,
-      h1[style] span {
-        color: var(--neon-pink) !important;
+      .boot-line .boot-ok { color: #27c93f; }
+      .boot-line .boot-info { color: rgba(201, 160, 220, 0.5); }
+      .boot-line .boot-warn { color: #ffbd2e; }
+      .boot-line .boot-highlight { color: var(--mauve-light); text-shadow: 0 0 12px rgba(201,160,220,0.3); }
+
+      .boot-progress-container {
+        margin: 10px 0;
+        width: 100%;
+        height: 4px;
+        background: rgba(201, 160, 220, 0.08);
+        border-radius: 4px;
+        overflow: hidden;
       }
-      [style] a,
-      a[style] {
-        color: var(--neon-pink) !important;
+      .boot-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--mauve-dark), var(--mauve));
+        border-radius: 4px;
+        transition: width 0.3s ease;
+        box-shadow: 0 0 12px rgba(201, 160, 220, 0.3);
       }
 
-      /* Hide Chirpy left sidebar on the landing page */
-      /* This only applies to pages using the `home` layout */
-      #sidebar,
-      #mask,
-      #sidebar-trigger,
-      .sidebar-bottom {
-        display: none !important;
-      }
-      /* Make the main content full width */
-      #main-wrapper,
-      #main-wrapper .container,
-      .site-viewport > :not(.top-nav) {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-      /* Ensure textual content on home layout uses neon pink to match theme */
-      .site-viewport > :not(.top-nav) {
-        color: var(--neon-pink) !important;
-      }
-      .site-viewport > :not(.top-nav) h1,
-      .site-viewport > :not(.top-nav) h2,
-      .site-viewport > :not(.top-nav) h3,
-      .site-viewport > :not(.top-nav) h4,
-      .site-viewport > :not(.top-nav) p,
-      .site-viewport > :not(.top-nav) li,
-      .site-viewport > :not(.top-nav) span,
-      .site-viewport > :not(.top-nav) a {
-        color: var(--neon-pink) !important;
-      }
-      /* Ensure body doesn't reserve space for sidebar */
-      body[sidebar-display] {
-        padding-left: 0 !important;
+      @keyframes bootFadeIn {
+        to { opacity: 1; }
       }
 
-      /* Responsive tweaks */
-      @media (max-width: 900px) {
-        .site-viewport {
-          flex-direction: column;
-        }
-        .radar {
-          display: none;
-        }
+      @keyframes bootPulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      .boot-cursor {
+        display: inline-block;
+        width: 8px;
+        height: 15px;
+        background: var(--mauve);
+        animation: bootPulse 0.8s infinite;
+        vertical-align: middle;
+        margin-left: 4px;
       }
 
-      /* Top navigation (new) */
+      .boot-status {
+        margin-top: 16px;
+        font-size: 12px;
+        color: rgba(201, 160, 220, 0.3);
+        text-align: right;
+      }
+
+      @media (max-width: 600px) {
+        .boot-body { padding: 16px; min-height: 260px; }
+        .boot-line { font-size: 11px; }
+      }
+
+      /* ── Navigation ── */
       .top-nav {
         position: absolute;
         top: 18px;
         right: 36px;
         display: flex;
-        gap: 14px;
+        gap: 10px;
         align-items: center;
         z-index: 60;
       }
       .top-nav a {
-        color: rgba(230, 237, 243, 0.9);
-        border: 1px solid rgba(245, 169, 197, 0.08);
-        padding: 8px 12px;
+        color: rgba(230, 237, 243, 0.8);
+        border: 1px solid rgba(201, 160, 220, 0.08);
+        padding: 7px 11px;
         border-radius: 6px;
-        font-size: 13px;
+        font-size: 12px;
         text-decoration: none;
         transition: all 160ms ease;
-        background: rgba(11, 15, 25, 0.25);
+        background: rgba(13, 11, 20, 0.5);
+        backdrop-filter: blur(8px);
+        font-family: "JetBrains Mono", monospace;
+        letter-spacing: 0.5px;
       }
       .top-nav a:hover {
-        color: var(--neon-pink);
-        box-shadow: 0 8px 30px rgba(245, 169, 197, 0.12);
+        color: var(--mauve-light);
+        box-shadow: 0 8px 30px rgba(201, 160, 220, 0.1);
         transform: translateY(-2px);
+        border-color: rgba(201, 160, 220, 0.2);
+      }
+
+      /* ── Utility ── */
+      #sidebar, #mask, #sidebar-trigger, .sidebar-bottom { display: none !important; }
+      #main-wrapper, #main-wrapper .container, .site-viewport > :not(.top-nav) {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      body[sidebar-display] { padding-left: 0 !important; }
+
+      @media (max-width: 900px) {
+        .site-viewport { flex-direction: column; }
+        .top-nav { right: 16px; top: 12px; gap: 6px; }
+        .top-nav a { font-size: 11px; padding: 5px 8px; }
       }
     </style>
   </head>
   <body>
+    <!-- ── BOOT SEQUENCE OVERLAY ── -->
+    <div id="boot-screen" role="alert" aria-label="System booting">
+      <div class="boot-terminal">
+        <div class="boot-header">
+          <span class="boot-dot red"></span>
+          <span class="boot-dot yellow"></span>
+          <span class="boot-dot green"></span>
+          <span class="boot-title">GRACE_MAWIA.EXE — boot sequence</span>
+        </div>
+        <div class="boot-body" id="boot-body">
+          <div class="boot-line"><span class="boot-ok">[  OK  ]</span> <span class="boot-info">Bios version 2.4.1 (x86_64)</span></div>
+          <div class="boot-line"><span class="boot-ok">[  OK  ]</span> <span class="boot-info">Initializing system core...</span></div>
+          <div class="boot-line"><span class="boot-ok">[  OK  ]</span> <span class="boot-info">Mounting encrypted partitions...</span></div>
+          <div class="boot-line"><span class="boot-ok">[  OK  ]</span> <span class="boot-info">Starting network interfaces — eth0: link up</span></div>
+          <div class="boot-line"><span class="boot-ok">[  OK  ]</span> <span class="boot-info">Establishing secure tunnel [TOR]...</span></div>
+          <div class="boot-line"><span class="boot-ok">[  OK  ]</span> <span class="boot-info">Decrypting identity payload...</span></div>
+          <div class="boot-line" style="margin-top: 6px;">
+            <span class="boot-ok">[  OK  ]</span> <span class="boot-highlight">Loading GRACE_MAWIA.profile...</span>
+          </div>
+          <div class="boot-progress-container">
+            <div class="boot-progress-bar" id="boot-progress-bar"></div>
+          </div>
+          <div class="boot-line" id="boot-auth-line" style="display:none;">
+            <span style="color:#ffbd2e">>>> AUTHENTICATING...</span>
+          </div>
+          <div class="boot-line" id="boot-access-line" style="display:none;">
+            <span class="boot-highlight">>>> ACCESS GRANTED</span>
+          </div>
+          <div class="boot-line" id="boot-ready-line" style="display:none;">
+            <span class="boot-info">Welcome, visitor. System initialized.</span><span class="boot-cursor"></span>
+          </div>
+        </div>
+        <div class="boot-status">_</div>
+      </div>
+    </div>
+
     <div class="site-viewport">
-      <!-- Top navigation inserted so the landing page shows links to other sections -->
+      <!-- Top navigation -->
       <nav class="top-nav" aria-label="Top navigation">
-        <a href="/">/home</a>
-        <a href="/about/">/about</a>
-        <a href="/categories/">/categories</a>
+        <a href="/">~/home</a>
+        <a href="/about/">~/about</a>
+        <a href="/categories/">~/projects</a>
+        <a href="/tags/">~/tags</a>
       </nav>
 
       {{ content }}
     </div>
 
+    <!-- ── BOOT SEQUENCE SCRIPT ── -->
     <script>
-      // Ensure /home link appears first in top-nav and sidebar on all pages using this layout
-      document.addEventListener("DOMContentLoaded", function () {
-        try {
-          var topNav = document.querySelector(".top-nav");
-          if (topNav) {
-            var homeLink = topNav.querySelector('a[href="/"]');
-            if (homeLink && topNav.firstElementChild !== homeLink) {
-              topNav.insertBefore(homeLink, topNav.firstElementChild);
-            }
+      document.addEventListener("DOMContentLoaded", function bootSequence() {
+        // Only run boot animation on the home page and only once per session
+        if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+          // Not on home page — hide boot screen immediately
+          var bs = document.getElementById("boot-screen");
+          if (bs) { bs.style.display = 'none'; bs.remove(); }
+          document.dispatchEvent(new Event("bootComplete"));
+          return;
+        }
+
+        // Check if boot has already played this session
+        if (sessionStorage.getItem('bootDone')) {
+          var bs = document.getElementById("boot-screen");
+          if (bs) { bs.style.display = 'none'; bs.remove(); }
+          document.dispatchEvent(new Event("bootComplete"));
+          return;
+        }
+
+        // Mark boot as done so it won't replay
+        sessionStorage.setItem('bootDone', 'true');
+
+        const bootScreen = document.getElementById("boot-screen");
+        const progressBar = document.getElementById("boot-progress-bar");
+        const authLine = document.getElementById("boot-auth-line");
+        const accessLine = document.getElementById("boot-access-line");
+        const readyLine = document.getElementById("boot-ready-line");
+        const topNav = document.querySelector(".top-nav");
+
+        // Hide all content behind boot screen
+        if (topNav) topNav.style.opacity = "0";
+
+        let progress = 0;
+
+        function advanceProgress(target, delay) {
+          return new Promise(function (resolve) {
+            setTimeout(function () {
+              progress = target;
+              if (progressBar) progressBar.style.width = progress + "%";
+              resolve();
+            }, delay);
+          });
+        }
+
+        async function runBoot() {
+          await advanceProgress(8, 400);
+          await advanceProgress(18, 500);
+          await advanceProgress(32, 600);
+          await advanceProgress(45, 400);
+          await advanceProgress(58, 700);
+          await advanceProgress(72, 500);
+          await advanceProgress(88, 800);
+
+          // Show auth line
+          if (authLine) {
+            authLine.style.display = "block";
+            authLine.style.opacity = "0";
+            authLine.style.animation = "bootFadeIn 0.4s forwards";
           }
 
-          var sidebar = document.querySelector("#sidebar");
-          if (sidebar) {
-            var ul = sidebar.querySelector("ul");
-            if (ul) {
-              var lis = ul.querySelectorAll("li");
-              lis.forEach(function (li) {
-                var a = li.querySelector('a[href="/"]');
-                if (a) {
-                  ul.insertBefore(li, ul.firstElementChild);
-                }
-              });
-            }
+          await advanceProgress(92, 1000);
+
+          // Show access granted
+          if (accessLine) {
+            accessLine.style.display = "block";
+            accessLine.style.opacity = "0";
+            accessLine.style.animation = "bootFadeIn 0.3s forwards";
           }
-        } catch (e) {
-          // silently ignore on older browsers
+
+          await advanceProgress(100, 600);
+
+          // Show ready
+          if (readyLine) {
+            readyLine.style.display = "block";
+            readyLine.style.opacity = "0";
+            readyLine.style.animation = "bootFadeIn 0.4s forwards";
+          }
+
+          // Hold for a moment, then fade out
+          await new Promise(function (r) { setTimeout(r, 1200); });
+
+          if (bootScreen) bootScreen.classList.add("hidden");
+          if (topNav) {
+            topNav.style.opacity = "1";
+            topNav.style.transition = "opacity 0.8s ease";
+          }
+
+          // Remove boot screen from DOM after transition
+          setTimeout(function () {
+            if (bootScreen) bootScreen.remove();
+          }, 1000);
+
+          // Dispatch event so any listeners know boot is done
+          document.dispatchEvent(new Event("bootComplete"));
         }
+
+        // Start boot after a tiny delay to ensure DOM ready
+        setTimeout(runBoot, 200);
       });
     </script>
   </body>
