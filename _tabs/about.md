@@ -28,7 +28,11 @@ layout: home
         </div>
 
         <p class="about-text" style="margin-top:20px;">
-          I'm a cybersecurity professional with a deep obsession for the adversarial mindset. My journey began in the dark corners of terminal windows, evolving into a structured career in SOC Analysis and Digital Forensics. Currently, I focus on identifying sophisticated threat patterns and building resilient defensive postures. When I'm not monitoring the perimeter, I'm deep in CTF machines or documenting my findings to help the community grow.
+          I'm Grace Mawia, a cybersecurity professional with a background in Computer Security and Forensics and a passion for protecting digital systems through security monitoring, incident response, and digital investigations.
+        </p>
+
+        <p class="about-text" style="margin-top:12px;">
+          My interests span Security Operations (SOC), Digital Forensics, Threat Detection, and Ethical Hacking.
         </p>
 
         <div class="values-box">

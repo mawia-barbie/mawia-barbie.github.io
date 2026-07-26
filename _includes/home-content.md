@@ -124,61 +124,7 @@
           <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
-        <!-- Blue - Locked (non-retired) -->
-        <div class="htb-card locked">
-          <div class="htb-card-head">
-            <span class="htb-diff easy">Easy</span>
-            <span class="htb-status locked-label">🔒 Locked</span>
-          </div>
-          <h4>Blue</h4>
-          <div class="htb-tags">
-            <span>EternalBlue</span><span>SMB</span><span>Windows</span>
-          </div>
-          <p>MS17-010 exploitation. Password required — this room is still active on HTB.</p>
-          <button class="htb-unlock-btn" data-room="blue">🔑 Unlock Writeup</button>
-        </div>
 
-        <!-- Lame - Locked -->
-        <div class="htb-card locked">
-          <div class="htb-card-head">
-            <span class="htb-diff easy">Easy</span>
-            <span class="htb-status locked-label">🔒 Locked</span>
-          </div>
-          <h4>Lame</h4>
-          <div class="htb-tags">
-            <span>Samba</span><span>Linux</span><span>Exploit</span>
-          </div>
-          <p>Samba usermap script exploitation. Password required — active room writeup.</p>
-          <button class="htb-unlock-btn" data-room="lame">🔑 Unlock Writeup</button>
-        </div>
-
-        <!-- Jerry - Locked -->
-        <div class="htb-card locked">
-          <div class="htb-card-head">
-            <span class="htb-diff easy">Easy</span>
-            <span class="htb-status locked-label">🔒 Locked</span>
-          </div>
-          <h4>Jerry</h4>
-          <div class="htb-tags">
-            <span>Tomcat</span><span>Web</span><span>Credentials</span>
-          </div>
-          <p>Tomcat server misconfiguration and credential recovery. Active room — password gated.</p>
-          <button class="htb-unlock-btn" data-room="jerry">🔑 Unlock Writeup</button>
-        </div>
-
-        <!-- Netmon - Locked -->
-        <div class="htb-card locked">
-          <div class="htb-card-head">
-            <span class="htb-diff easy">Easy</span>
-            <span class="htb-status locked-label">🔒 Locked</span>
-          </div>
-          <h4>Netmon</h4>
-          <div class="htb-tags">
-            <span>PRTG</span><span>Network</span><span>FTP</span>
-          </div>
-          <p>PRTG Network Monitor exploitation via exposed FTP credentials. Password protected.</p>
-          <button class="htb-unlock-btn" data-room="netmon">🔑 Unlock Writeup</button>
-        </div>
 
       </div>
     </section>

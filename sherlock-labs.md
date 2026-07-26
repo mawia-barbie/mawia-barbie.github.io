@@ -19,7 +19,6 @@ permalink: /sherlock-labs/
       <article class="sherlock-card locked">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty medium">Medium</span>
         </div>
         <h3 class="sherlock-card-title">Brutus <span class="sherlock-lock-badge">🔒</span></h3>
         <p class="sherlock-card-desc">Forensic investigation of a brute-force attack scenario. Analyze authentication logs, identify compromised accounts, and trace the attacker's foothold.</p>
@@ -33,7 +32,6 @@ permalink: /sherlock-labs/
       <article class="sherlock-card">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty easy">Easy</span>
         </div>
         <h3 class="sherlock-card-title">FortySeven-1</h3>
         <p class="sherlock-card-desc">Digital forensics case involving file recovery and metadata analysis. Recover deleted artifacts and piece together user activity from disk images.</p>
@@ -47,12 +45,11 @@ permalink: /sherlock-labs/
       <article class="sherlock-card">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty medium">Medium</span>
         </div>
         <h3 class="sherlock-card-title">Vantage</h3>
-        <p class="sherlock-card-desc">Investigation of a suspected data exfiltration incident. Correlate network logs, endpoint data, and timeline analysis to identify the breach vector.</p>
+        <p class="sherlock-card-desc">Investigate network traffic to identify abuse of the OpenStack API. Analyze packet captures to discern misconfigurations and unauthorized access attempts. Trace API interactions and pinpoint the technical vulnerabilities that allowed the breach.</p>
         <div class="sherlock-tags">
-          <span>Data Exfil</span><span>Network Forensics</span><span>Timeline</span>
+          <span>OpenStack API</span><span>Packet Capture</span><span>Cloud Security</span><span>API Abuse</span>
         </div>
         <a href="#" class="sherlock-link">Read Writeup →</a>
       </article>
@@ -61,12 +58,11 @@ permalink: /sherlock-labs/
       <article class="sherlock-card">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty easy">Easy</span>
         </div>
         <h3 class="sherlock-card-title">Telly</h3>
-        <p class="sherlock-card-desc">Telemetry analysis and log correlation to detect anomalous behavior in a Windows environment. Focus on event logs and Sysmon data.</p>
+        <p class="sherlock-card-desc">Analyze network traffic to find evidence of exploitation of CVE-2026-24061 against the telnet protocol, allowing root remote access without any credentials or prior access.</p>
         <div class="sherlock-tags">
-          <span>Windows Events</span><span>Sysmon</span><span>Telemetry</span>
+          <span>Telnet</span><span>CVE-2026-24061</span><span>Network Traffic</span><span>Remote Access</span>
         </div>
         <a href="#" class="sherlock-link">Read Writeup →</a>
       </article>
@@ -75,42 +71,38 @@ permalink: /sherlock-labs/
       <article class="sherlock-card">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty hard">Hard</span>
         </div>
         <h3 class="sherlock-card-title">MangoBleed</h3>
         <p class="sherlock-card-desc">Advanced memory forensics challenge. Analyze memory dumps to identify malicious processes, injected code, and persistence mechanisms used by the adversary.</p>
         <div class="sherlock-tags">
           <span>Memory Forensics</span><span>Volatility</span><span>Malware Analysis</span>
         </div>
-        <a href="#" class="sherlock-link">Read Writeup →</a>
+        <a href="/writeups/sherlock/mangobleed/" class="sherlock-link">Read Writeup →</a>
       </article>
 
       <!-- Operation Blackout 2025: Phantom Check -->
       <article class="sherlock-card">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty hard">Hard</span>
         </div>
         <h3 class="sherlock-card-title">Operation Blackout 2025: Phantom Check</h3>
-        <p class="sherlock-card-desc">Multi-stage incident response scenario involving ransomware deployment, lateral movement, and defense evasion tactics. Full chain analysis required.</p>
+        <p class="sherlock-card-desc">A Sherlock challenge showcasing common virtualization detection techniques used by attackers. Gain the ability to create detection rules by identifying specific WMI queries, comparing processes for VM detection, and analyzing registry keys or file paths associated with virtual environments.</p>
         <div class="sherlock-tags">
-          <span>Ransomware</span><span>Lateral Movement</span><span>IR</span>
-        </div>
-        <a href="#" class="sherlock-link">Read Writeup →</a>
+          <span>VM Detection</span><span>WMI Queries</span><span>Registry Analysis</span><span>Detection Rules</span>
+        </div><a href="/writeups/sherlock/phantom-check/" class="sherlock-link">Read Writeup →</a>
       </article>
 
-      <!-- Operation Blackout 2025: Smoke & Mirrors -->
+        <!-- Operation Blackout 2025: Smoke & Mirrors -->
       <article class="sherlock-card">
         <div class="sherlock-card-top">
           <span class="material-symbols-outlined sherlock-card-icon">search_insights</span>
-          <span class="sherlock-difficulty hard">Hard</span>
         </div>
         <h3 class="sherlock-card-title">Operation Blackout 2025: Smoke &amp; Mirrors</h3>
-        <p class="sherlock-card-desc">Advanced threat hunting exercise focused on detecting living-off-the-land binaries, log tampering, and covert C2 communication channels.</p>
+        <p class="sherlock-card-desc">Analyze event logs and forensic artifacts to uncover how the attacker disabled or altered security features. Identify the tools, commands, or scripts used to reduce visibility and reconstruct the methods the attacker used to operate undetected.</p>
         <div class="sherlock-tags">
-          <span>Threat Hunting</span><span>LoLBins</span><span>C2 Detection</span>
+          <span>Event Logs</span><span>Defense Evasion</span><span>Security Features</span><span>Forensic Artifacts</span>
         </div>
-        <a href="#" class="sherlock-link">Read Writeup →</a>
+        <a href="/writeups/sherlock/smoke-and-mirrors/" class="sherlock-link">Read Writeup →</a>
       </article>
 
     </div>
@@ -214,7 +206,6 @@ permalink: /sherlock-labs/
 
 .sherlock-card-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 14px;
 }
@@ -222,31 +213,6 @@ permalink: /sherlock-labs/
 .sherlock-card-icon {
   font-size: 28px !important;
   color: #22d3ee !important;
-}
-
-.sherlock-difficulty {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  padding: 3px 10px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid;
-}
-.sherlock-difficulty.easy {
-  color: #27c93f;
-  border-color: rgba(39, 201, 63, 0.3);
-  background: rgba(39, 201, 63, 0.06);
-}
-.sherlock-difficulty.medium {
-  color: #ffbd2e;
-  border-color: rgba(255, 189, 46, 0.3);
-  background: rgba(255, 189, 46, 0.06);
-}
-.sherlock-difficulty.hard {
-  color: #ff5f56;
-  border-color: rgba(255, 95, 86, 0.3);
-  background: rgba(255, 95, 86, 0.06);
 }
 
 .sherlock-card-title {
