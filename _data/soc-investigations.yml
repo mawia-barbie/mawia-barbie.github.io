@@ -1,0 +1,24 @@
+# Home SOC Lab — Investigation Library
+# Add a new entry below to publish a case study on /home-soc-lab/.
+# Leave `url` empty while the writeup is in progress (shows as "Pending").
+# When ready, set url to the page path, e.g. url: /writeups/soc/investigation-001/
+
+- number: "001"
+  title: PowerShell Execution
+  description: Simulated command execution (T1059.001) with Atomic Red Team, analyzed through Sysmon Event ID 1 process creation and Wazuh detection rules.
+  url:
+
+- number: "002"
+  title: Registry Persistence
+  description: Persistence attempt via Registry Run keys (T1547.001), tracked with Sysmon Event ID 13 registry events and Wazuh FIM alerts.
+  url:
+
+- number: "003"
+  title: Credential Access
+  description: Credential dumping simulation (T1003) and review of the corresponding endpoint telemetry, Sysmon events, and alert timeline.
+  url:
+
+- number: "004"
+  title: Scheduled Tasks
+  description: Scheduled task creation (T1053.005) detection walkthrough — from Atomic Red Team execution to Wazuh alert investigation.
+  url:

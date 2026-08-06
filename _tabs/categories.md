@@ -16,11 +16,30 @@ layout: home
 
     <div class="cats-grid">
 
+      <!-- Home SOC Lab -->
+      <div class="cat-panel featured">
+        <div class="cat-panel-head">
+          <span class="material-symbols-outlined cat-panel-icon">security</span>
+          <span class="cat-panel-num">01</span>
+        </div>
+        <h3 class="cat-panel-title">Home SOC Lab <span class="cat-status-badge">● Active</span></h3>
+        <p class="cat-panel-desc">A self-built Security Operations Center (SOC) lab used to simulate cyber attacks, monitor endpoint activity, investigate security alerts, and strengthen hands-on detection and incident response skills using Wazuh, Sysmon, and Atomic Red Team.</p>
+        <div class="cat-panel-meta">
+          <span class="cat-tag">Wazuh</span>
+          <span class="cat-tag">Sysmon</span>
+          <span class="cat-tag">Atomic Red Team</span>
+          <span class="cat-tag">Windows 11</span>
+          <span class="cat-tag">Parrot OS</span>
+          <span class="cat-tag">MITRE ATT&CK</span>
+        </div>
+        <a href="/home-soc-lab/" class="cat-panel-link">Explore Lab →</a>
+      </div>
+
       <!-- Sherlock Rooms -->
       <div class="cat-panel">
         <div class="cat-panel-head">
           <span class="material-symbols-outlined cat-panel-icon">search_insights</span>
-          <span class="cat-panel-num">01</span>
+          <span class="cat-panel-num">02</span>
         </div>
         <h3 class="cat-panel-title">Sherlock Rooms</h3>
         <p class="cat-panel-desc">In-depth investigation write-ups for complex blue-team scenarios focusing on host-based forensics and threat hunting.</p>
@@ -36,7 +55,7 @@ layout: home
       <div class="cat-panel">
         <div class="cat-panel-head">
           <span class="material-symbols-outlined cat-panel-icon">code</span>
-          <span class="cat-panel-num">02</span>
+          <span class="cat-panel-num">03</span>
         </div>
         <h3 class="cat-panel-title">Python Tools</h3>
         <p class="cat-panel-desc">Custom security tooling for log analysis, network scanning, packet manipulation, and automation.</p>
@@ -181,6 +200,38 @@ layout: home
 .cat-panel-link:hover {
   color: var(--mauve-light, #e6c8f0) !important;
   padding-left: 4px;
+}
+
+/* ── Featured / flagship panel ── */
+.cat-panel.featured {
+  background:
+    radial-gradient(120% 90% at 90% 0%, rgba(201, 160, 220, 0.06), transparent 60%),
+    rgba(13, 11, 20, 0.5);
+  border-color: rgba(201, 160, 220, 0.16);
+}
+.cat-panel.featured::before {
+  background: linear-gradient(90deg, #22d3ee, var(--mauve, #c9a0dc), transparent);
+  opacity: 0.9;
+}
+
+.cat-status-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #27c93f;
+  background: rgba(39, 201, 63, 0.06);
+  border: 1px solid rgba(39, 201, 63, 0.2);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+  vertical-align: 3px;
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(39, 201, 63, 0); }
+  50% { box-shadow: 0 0 12px 0 rgba(39, 201, 63, 0.25); }
 }
 
 @media (max-width: 820px) {
