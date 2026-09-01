@@ -523,7 +523,8 @@ permalink: /sherlock-labs/
           passwordInput.value = '';
           passwordInput.focus();
         }
-        if (passwordError) passwordError.classList.remove('show');
+        if (passwordError) passwordError.classList.remove('show');cd..
+        
       }
     });
   });

@@ -5,20 +5,33 @@
 
     <!-- ─── HERO: NAME + ROLES ─── -->
     <section class="hero-section" id="hero">
-      <div class="hero-identity">
-        <div class="hero-glitch-wrapper">
-          <h1 class="hero-name" data-text="Grace Mawia">Grace Mawia</h1>
+      <div class="hero-frame">
+        <div class="hero-glow-orb hero-glow-orb--1" aria-hidden="true"></div>
+        <div class="hero-glow-orb hero-glow-orb--2" aria-hidden="true"></div>
+        <div class="hero-identity">
+          <div class="hero-glitch-wrapper">
+            <h1 class="hero-name" data-text="Grace Mawia">Grace Mawia</h1>
+          </div>
+          <div class="hero-status">
+            <span class="hero-status-dot"></span>
+            <span class="hero-status-text">Available for Opportunities</span>
+          </div>
+          <div class="hero-divider"><span></span><span class="hero-divider-dot"></span><span></span></div>
+          <div class="hero-roles">
+            <span class="hero-role-badge soc"><span class="hero-badge-icon">◈</span> SOC Analyst</span>
+            <span class="hero-role-badge ctf"><span class="hero-badge-icon">◈</span> CTF Player</span>
+            <span class="hero-role-badge dfir"><span class="hero-badge-icon">◈</span> DFIR Specialist</span>
+          </div>
+          <p class="hero-tagline">"Hunt threats. Analyze evidence. Defend forward."</p>
+          <p class="hero-sub-summary">
+            Focused on SOC operations, digital forensics, and threat detection.<br>
+            Driven by curiosity, hands-on learning, and a passion for solving complex security challenges.
+          </p>
+          <div class="hero-cta-row">
+            <a href="/categories/" class="hero-cta"><span class="hero-cta-arrow">→</span> View Projects</a>
+            <a href="/about/" class="hero-cta hero-cta--ghost">About Me</a>
+          </div>
         </div>
-        <div class="hero-roles">
-          <span class="hero-role-badge soc">SOC Analyst</span>
-          <span class="hero-role-badge ctf">CTF Player</span>
-          <span class="hero-role-badge dfir">DFIR Specialist</span>
-        </div>
-        <p class="hero-tagline">"Hunt threats. Analyze evidence. Defend forward."</p>
-        <p class="hero-sub-summary">
-          Cybersecurity Analyst focused on SOC operations, digital forensics, and threat detection.<br>
-          Driven by curiosity, hands-on learning, and a passion for solving complex security challenges.
-        </p>
       </div>
     </section>
 
@@ -41,7 +54,6 @@
             <span>Telnet</span><span>Nmap</span><span>Enumeration</span>
           </div>
           <p>Basic network enumeration and remote access via Telnet to obtain the flag.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
         <!-- Fawn - Released -->
@@ -55,7 +67,6 @@
             <span>FTP</span><span>Anonymous</span><span>Enumeration</span>
           </div>
           <p>FTP anonymous authentication and information disclosure via misconfigured file sharing.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
         <!-- Dancing - Released -->
@@ -69,7 +80,6 @@
             <span>SMB</span><span>Windows</span><span>Share Discovery</span>
           </div>
           <p>SMB share enumeration and remote directory navigation to retrieve exposed data.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
         <!-- Redeemer - Released -->
@@ -83,7 +93,6 @@
             <span>Redis</span><span>Database</span><span>Enumeration</span>
           </div>
           <p>Connected to an exposed Redis instance and extracted sensitive stored data.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
         <!-- Appointment - Released -->
@@ -97,7 +106,6 @@
             <span>SQLi</span><span>Web</span><span>Auth Bypass</span>
           </div>
           <p>SQL Injection in login form to bypass authentication and access restricted functionality.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
         <!-- Sequel - Released -->
@@ -111,7 +119,6 @@
             <span>MySQL</span><span>SQL</span><span>Enumeration</span>
           </div>
           <p>MySQL misconfiguration allowing unauthenticated database enumeration and flag retrieval.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
         <!-- Crocodile - Released -->
@@ -125,7 +132,6 @@
             <span>FTP</span><span>Gobuster</span><span>Web</span>
           </div>
           <p>FTP anonymous login, credential discovery, directory fuzzing, and admin panel access.</p>
-          <a href="#" class="htb-link">Read Writeup →</a>
         </div>
 
 
@@ -203,13 +209,98 @@
   padding: 80px 36px 40px;
 }
 
-/* ── Hero Identity ── */
-.hero-identity {
-  text-align: center;
-  margin-bottom: 32px;
-  padding: 20px 0;
+/* ── Hero Section ── */
+.hero-section {
+  margin-bottom: 48px;
 }
 
+.hero-frame {
+  position: relative;
+  border: 1px solid rgba(201, 160, 220, 0.12);
+  border-radius: 16px;
+  padding: 48px 40px 40px;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(201,160,220,0.06), transparent 60%),
+    radial-gradient(ellipse at 70% 100%, rgba(34,211,238,0.03), transparent 50%),
+    rgba(201, 160, 220, 0.02);
+  overflow: hidden;
+  animation: heroFramePulse 6s ease-in-out infinite;
+}
+
+@keyframes heroFramePulse {
+  0%, 100% { border-color: rgba(201, 160, 220, 0.12); }
+  50% { border-color: rgba(201, 160, 220, 0.25); }
+}
+
+.hero-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+.hero-glow-orb--1 {
+  width: 300px; height: 300px;
+  top: -100px; left: -60px;
+  background: radial-gradient(circle, rgba(201,160,220,0.15), transparent 70%);
+  animation: orbFloat1 8s ease-in-out infinite;
+}
+.hero-glow-orb--2 {
+  width: 250px; height: 250px;
+  bottom: -80px; right: -40px;
+  background: radial-gradient(circle, rgba(34,211,238,0.1), transparent 70%);
+  animation: orbFloat2 10s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, 15px); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-15px, -20px); }
+}
+
+.hero-identity {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Status pill */
+.hero-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 100px;
+  border: 1px solid rgba(39, 201, 63, 0.2);
+  background: rgba(39, 201, 63, 0.05);
+  margin: 16px auto 0;
+  width: fit-content;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #27c93f;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hero-status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #27c93f;
+  animation: statusPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(39, 201, 63, 0.5);
+}
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(39, 201, 63, 0.5); }
+  50% { opacity: 0.4; box-shadow: 0 0 2px rgba(39, 201, 63, 0.2); }
+}
+.hero-status-text {
+  font-weight: 500;
+}
+
+/* Glitch name */
 .hero-glitch-wrapper {
   position: relative;
   display: inline-block;
@@ -217,15 +308,17 @@
 
 .hero-name {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 3.6rem;
+  font-size: 4.2rem;
   font-weight: 800;
   color: var(--mauve-light, #e6c8f0);
   margin: 0;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   text-transform: uppercase;
   text-shadow:
-    0 0 20px rgba(201, 160, 220, 0.3),
-    0 0 60px rgba(201, 160, 220, 0.1);
+    0 0 10px rgba(201, 160, 220, 0.5),
+    0 0 30px rgba(201, 160, 220, 0.3),
+    0 0 80px rgba(201, 160, 220, 0.15),
+    0 0 120px rgba(201, 160, 220, 0.05);
   position: relative;
 }
 
@@ -237,12 +330,10 @@
   width: 100%; height: 100%;
   opacity: 0;
 }
-
 .hero-name::before {
   color: #22d3ee;
   clip-path: inset(20% 0 60% 0);
 }
-
 .hero-name::after {
   color: #ff5f56;
   clip-path: inset(60% 0 10% 0);
@@ -267,7 +358,6 @@
   93% { transform: translate(-1px, 2px); }
   94% { transform: translate(0); }
 }
-
 @keyframes heroGlitchShift {
   0%, 7%, 100% { opacity: 0; }
   4% { opacity: 0.6; }
@@ -275,80 +365,174 @@
   6% { opacity: 0.7; }
 }
 
+/* Role title */
+.hero-role-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(196, 176, 204, 0.6);
+  margin: 8px 0 0;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* Divider */
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.hero-divider span:first-child,
+.hero-divider span:last-child {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,160,220,0.3), transparent);
+}
+.hero-divider-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--mauve);
+  opacity: 0.5;
+}
+
+/* Role badges */
 .hero-roles {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 14px;
+  margin-top: 0;
   flex-wrap: wrap;
 }
 
 .hero-role-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  padding: 6px 16px;
-  border-radius: 6px;
+  font-size: 12px;
+  padding: 8px 20px;
+  border-radius: 8px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
+  letter-spacing: 1.5px;
+  font-weight: 600;
   transition: all 0.3s ease;
   cursor: default;
+}
+.hero-badge-icon {
+  font-size: 10px;
+  opacity: 0.7;
 }
 
 .hero-role-badge.soc {
   color: #22d3ee;
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  background: rgba(34, 211, 238, 0.04);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  background: rgba(34, 211, 238, 0.06);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.05);
 }
 .hero-role-badge.soc:hover {
-  background: rgba(34, 211, 238, 0.1);
-  border-color: rgba(34, 211, 238, 0.4);
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.08);
-  transform: translateY(-2px);
+  background: rgba(34, 211, 238, 0.12);
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.12);
+  transform: translateY(-3px);
 }
 
 .hero-role-badge.ctf {
   color: #27c93f;
-  border: 1px solid rgba(39, 201, 63, 0.2);
-  background: rgba(39, 201, 63, 0.04);
+  border: 1px solid rgba(39, 201, 63, 0.25);
+  background: rgba(39, 201, 63, 0.06);
+  box-shadow: 0 0 20px rgba(39, 201, 63, 0.05);
 }
 .hero-role-badge.ctf:hover {
-  background: rgba(39, 201, 63, 0.1);
-  border-color: rgba(39, 201, 63, 0.4);
-  box-shadow: 0 0 20px rgba(39, 201, 63, 0.08);
-  transform: translateY(-2px);
+  background: rgba(39, 201, 63, 0.12);
+  border-color: rgba(39, 201, 63, 0.5);
+  box-shadow: 0 0 30px rgba(39, 201, 63, 0.12);
+  transform: translateY(-3px);
 }
 
 .hero-role-badge.dfir {
   color: var(--mauve, #c9a0dc);
-  border: 1px solid rgba(201, 160, 220, 0.2);
-  background: rgba(201, 160, 220, 0.04);
+  border: 1px solid rgba(201, 160, 220, 0.25);
+  background: rgba(201, 160, 220, 0.06);
+  box-shadow: 0 0 20px rgba(201, 160, 220, 0.05);
 }
 .hero-role-badge.dfir:hover {
-  background: rgba(201, 160, 220, 0.1);
-  border-color: rgba(201, 160, 220, 0.4);
-  box-shadow: 0 0 20px rgba(201, 160, 220, 0.08);
-  transform: translateY(-2px);
+  background: rgba(201, 160, 220, 0.12);
+  border-color: rgba(201, 160, 220, 0.5);
+  box-shadow: 0 0 30px rgba(201, 160, 220, 0.12);
+  transform: translateY(-3px);
 }
 
 .hero-tagline {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: rgba(196, 176, 204, 0.5);
-  margin-top: 18px;
+  font-size: 14px;
+  color: rgba(196, 176, 204, 0.6);
+  margin-top: 24px;
   font-style: italic;
   letter-spacing: 0.5px;
 }
 
 .hero-sub-summary {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 14px;
-  line-height: 1.7;
-  color: rgba(196, 176, 204, 0.65);
-  margin: 24px auto 0;
-  max-width: 580px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(196, 176, 204, 0.7);
+  margin: 20px auto 0;
+  max-width: 560px;
   text-align: center;
+}
+
+/* CTA buttons */
+.hero-cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+.hero-cta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-cta-arrow {
+  transition: transform 0.3s ease;
+}
+.hero-cta:hover .hero-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Primary CTA */
+.hero-cta:not(.hero-cta--ghost) {
+  color: #0d0b14 !important;
+  background: linear-gradient(135deg, var(--mauve), var(--mauve-light));
+  border: 1px solid var(--mauve);
+  box-shadow: 0 0 24px rgba(201, 160, 220, 0.2), 0 4px 16px rgba(201, 160, 220, 0.15);
+}
+.hero-cta:not(.hero-cta--ghost):hover {
+  box-shadow: 0 0 40px rgba(201, 160, 220, 0.35), 0 8px 32px rgba(201, 160, 220, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Ghost CTA */
+.hero-cta--ghost {
+  color: var(--mauve) !important;
+  background: transparent;
+  border: 1px solid rgba(201, 160, 220, 0.25);
+}
+.hero-cta--ghost:hover {
+  background: rgba(201, 160, 220, 0.08);
+  border-color: rgba(201, 160, 220, 0.5);
+  box-shadow: 0 0 24px rgba(201, 160, 220, 0.1);
+  transform: translateY(-3px);
 }
 
 /* ── Section Block ── */
@@ -819,18 +1003,27 @@
 /* ── Responsive ── */
 @media (max-width: 820px) {
   .container-terminal { padding: 80px 16px 20px; }
-  .hero-name { font-size: 2.2rem; letter-spacing: 2px; }
-  .hero-role-badge { font-size: 10px; padding: 5px 12px; }
+  .hero-frame { padding: 36px 24px 32px; }
+  .hero-name { font-size: 2.6rem; letter-spacing: 3px; }
+  .hero-role-title { font-size: 13px; letter-spacing: 3px; }
+  .hero-role-badge { font-size: 11px; padding: 7px 16px; }
   .hero-tagline { font-size: 12px; }
+  .hero-sub-summary { font-size: 13px; }
+  .hero-cta { font-size: 12px; padding: 10px 22px; }
   .section-header h2 { font-size: 1.2rem; }
   .footer-inner { flex-direction: column; text-align: center; align-items: center; }
   .footer-nav { justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .hero-name { font-size: 1.6rem; letter-spacing: 1px; }
+  .hero-frame { padding: 28px 16px 24px; }
+  .hero-name { font-size: 1.8rem; letter-spacing: 1px; }
+  .hero-role-title { font-size: 11px; letter-spacing: 2px; }
   .hero-roles { gap: 8px; }
-  .hero-role-badge { font-size: 9px; padding: 4px 10px; letter-spacing: 1px; }
+  .hero-role-badge { font-size: 9px; padding: 5px 12px; letter-spacing: 1px; }
+  .hero-cta-row { flex-direction: column; align-items: center; gap: 10px; }
+  .hero-cta { width: 100%; max-width: 240px; justify-content: center; }
+  .hero-status { font-size: 10px; padding: 5px 14px; }
 }
 </style>
 
